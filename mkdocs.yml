@@ -1,0 +1,48 @@
+site_name: GitHub Enterprise Landing Zone
+site_description: Operating model + reference implementation for GitHub Enterprise at scale
+repo_url: https://github.com/<org>/<repo>
+repo_name: <org>/<repo>
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.highlight
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+nav:
+  - Start here: index.md
+  - Architecture:
+      - architecture/mental-model.md
+      - architecture/org-strategy.md
+  - Operating model:
+      - operating-model/roles-raci.md
+      - operating-model/exception-process.md
+  - Guardrails:
+      - guardrails/repo-baseline.md
+      - guardrails/rulesets.md
+      - guardrails/reusable-workflows.md
+  - How-to:
+      - how-to/consume-framework.md
+      - how-to/onboarding-a-team.md
+  - Decisions (ADRs):
+      - adr/0001-docs-stack.md
