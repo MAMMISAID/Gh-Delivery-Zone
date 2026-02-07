@@ -1,4 +1,4 @@
-# GitHub Enterprise Landing Zone
+# Getting Started
 
 This project is a reference architecture + reference implementation for operating **GitHub Enterprise at scale** (hundreds to thousands of repositories) with:
 
@@ -15,11 +15,13 @@ It is inspired by **Azure Landing Zone** principles, but adapted to GitHub reali
 - Security & governance teams defining guardrails
 - Cloud / enterprise architects designing operating models
 - Product teams who want **clear paved roads** instead of bespoke approvals
+- Companies moving from github mono org to multi org
 
 ## What you get
 
 ### 1) An operating model (docs)
 A clear model for:
+
 - enterprise and organization boundaries
 - ownership (RACI), onboarding, and exceptions
 - guardrails design (what is mandatory vs configurable)
@@ -27,6 +29,7 @@ A clear model for:
 
 ### 2) A reference implementation (code)
 Reusable building blocks (modules + examples) to implement:
+
 - organization baseline (policies, identity, governance)
 - repository baseline (rulesets, protections, CI guardrails)
 - reusable workflows (avoid copy/paste YAML)
@@ -49,6 +52,12 @@ An **organization is a security and cost boundary**.
 
 ➡️ Start with: **Architecture → Mental model**.
 
+## Requirements
+
+- Github Cloud Organization (to inssure the code compatibilty), you can adopt the framework and implement it on github server.
+- Github Entreprise Admin Access
+
+
 ## How to use this repo
 
 ### If you want to adopt it
@@ -66,6 +75,7 @@ An **organization is a security and cost boundary**.
 ## Non-goals
 
 This is **not**:
+
 - a click-by-click tutorial for GitHub UI
 - a one-size-fits-all “golden repo” template
 - a replacement for your security program

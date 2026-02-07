@@ -7,7 +7,6 @@ edit_uri: edit/main/docs/
 theme:
   name: material
   features:
-    - navigation.tabs
     - navigation.sections
     - navigation.indexes
     - content.action.edit
@@ -20,7 +19,11 @@ theme:
 markdown_extensions:
   - admonition
   - pymdownx.details
-  - pymdownx.superfences
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
   - pymdownx.inlinehilite
   - pymdownx.highlight
   - pymdownx.snippets
@@ -30,19 +33,19 @@ markdown_extensions:
       permalink: true
 
 nav:
-  - Start here: index.md
+  - Get Started: getting-started.md
   - Architecture:
-      - architecture/mental-model.md
-      - architecture/org-strategy.md
+      - Core Mental Model: architecture/mental-model.md
+      - Organization Strategy: architecture/org-strategy.md
   - Operating model:
-      - operating-model/roles-raci.md
-      - operating-model/exception-process.md
+      - Roles & RACI: operating-model/roles-raci.md
+      - Exception Process: operating-model/exception-process.md
   - Guardrails:
-      - guardrails/repo-baseline.md
-      - guardrails/rulesets.md
-      - guardrails/reusable-workflows.md
+      - Repository Baseline: guardrails/repo-baseline.md
+      - Rulesets: guardrails/rulesets.md
+      - Reusable Workflows: guardrails/reusable-workflows.md
   - How-to:
-      - how-to/consume-framework.md
-      - how-to/onboarding-a-team.md
+      - Consume Framework: how-to/consume-framework.md
+      - Onboarding a Team: how-to/onboarding-a-team.md
   - Decisions (ADRs):
-      - adr/0001-docs-stack.md
+      - Documentation Stack: adr/0001-docs-stack.md
