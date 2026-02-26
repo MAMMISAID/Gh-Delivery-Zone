@@ -71,6 +71,21 @@ button {
   color: var(--gh-link);
 }
 
+/* Rename the primary drawer title without changing site_name globally. */
+.md-nav--primary > .md-nav__title[for="__drawer"] {
+  align-items: center;
+  display: flex;
+  font-size: 0;
+}
+
+.md-nav--primary > .md-nav__title[for="__drawer"]::after {
+  color: var(--gh-muted-text);
+  content: "Navigation";
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-left: 0.35rem;
+}
+
 .md-typeset {
   font-size: 0.95rem;
   line-height: 1.65;
