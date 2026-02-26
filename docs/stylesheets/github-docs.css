@@ -211,6 +211,23 @@ button {
   .md-sidebar--secondary .md-sidebar__scrollwrap {
     border: 0;
   }
+
+  /* Remove end-gap in drawer rows so chevrons sit at the sidebar edge. */
+  [dir="ltr"] .md-nav--primary .md-nav__item > .md-nav__link {
+    margin-right: 0;
+  }
+
+  [dir="rtl"] .md-nav--primary .md-nav__item > .md-nav__link {
+    margin-left: 0;
+  }
+
+  .md-nav--primary .md-nav__item--nested > .md-nav__link {
+    padding-right: 0.2rem;
+  }
+
+  .md-nav--primary .md-nav__item--nested > .md-nav__link .md-nav__icon {
+    margin-right: 0;
+  }
 }
 
 /* Desktop layout: keep both sidebars on edges, keep center content responsive. */
@@ -219,7 +236,7 @@ button {
     align-items: start;
     column-gap: 0;
     display: grid;
-    grid-template-columns: minmax(14rem, 17.5rem) minmax(0, 1fr) minmax(12rem, 16rem);
+    grid-template-columns: clamp(11.5rem, 14vw, 14.5rem) minmax(0, 1fr) clamp(10.5rem, 12vw, 14rem);
     margin: 0;
     max-width: 100%;
     padding-inline: clamp(0.5rem, 1vw, 1rem);
@@ -236,6 +253,31 @@ button {
 
   .md-sidebar--primary {
     grid-column: 1;
+  }
+
+  [dir="ltr"] .md-sidebar--primary .md-sidebar__inner {
+    padding-right: 0;
+  }
+
+  [dir="rtl"] .md-sidebar--primary .md-sidebar__inner {
+    padding-left: 0;
+  }
+
+  .md-sidebar--primary .md-nav--primary {
+    width: 100%;
+  }
+
+  /* Desktop: keep chevron close to label (not fixed at far-right). */
+  .md-nav--primary .md-nav__item--nested > .md-nav__link {
+    justify-content: flex-start;
+  }
+
+  [dir="ltr"] .md-nav--primary .md-nav__item--nested > .md-nav__link .md-icon:last-child {
+    margin-left: 0.35rem;
+  }
+
+  [dir="rtl"] .md-nav--primary .md-nav__item--nested > .md-nav__link .md-icon:last-child {
+    margin-right: 0.35rem;
   }
 
   .md-content {
