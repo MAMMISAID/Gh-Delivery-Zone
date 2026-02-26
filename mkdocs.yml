@@ -23,6 +23,9 @@ theme:
 extra_css:
   - stylesheets/github-docs.css
 
+extra_javascript:
+  - javascripts/header-home-link.js
+
 markdown_extensions:
   - admonition
   - pymdownx.details
@@ -40,7 +43,6 @@ markdown_extensions:
       permalink: true
 
 nav:
-  - Home: index.md
   - Get Started: getting-started.md
   - Architecture:
       - Core Mental Model: architecture/mental-model.md
