@@ -1,13 +1,17 @@
 site_name: GitHub Enterprise Landing Zone
 site_description: Operating model + reference implementation for GitHub Enterprise at scale
-repo_url: https://github.com/<org>/<repo>
-repo_name: <org>/<repo>
+repo_url: https://github.com/Gh-Delivery-Zone/Documentation
+repo_name: Gh-Delivery-Zone/Documentation
 edit_uri: edit/main/docs/
 
 theme:
   name: material
+  font: false
+  palette:
+    - scheme: default
+      primary: white
+      accent: blue
   features:
-    - navigation.sections
     - navigation.indexes
     - content.action.edit
     - content.action.view
@@ -15,6 +19,9 @@ theme:
     - toc.follow
   icon:
     repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/github-docs.css
 
 markdown_extensions:
   - admonition
@@ -33,6 +40,7 @@ markdown_extensions:
       permalink: true
 
 nav:
+  - Home: index.md
   - Get Started: getting-started.md
   - Architecture:
       - Core Mental Model: architecture/mental-model.md

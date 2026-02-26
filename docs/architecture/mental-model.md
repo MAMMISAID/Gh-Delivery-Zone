@@ -16,104 +16,90 @@ The GitHub Enterprise Landing Zone is how you prevent that.
 ## Overview
 
 ```mermaid
+%%{init: {'theme': 'base', 'flowchart': {'curve': 'basis', 'nodeSpacing': 45, 'rankSpacing': 65}, 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif', 'lineColor': '#6e7781', 'clusterBkg': '#ffffff', 'clusterBorder': '#d0d7de', 'primaryTextColor': '#1f2328'}}}%%
 flowchart TB
-  %% =========================
-  %% GitHub Enterprise Landing Zone - Governance Topology
-  %% =========================
-
-  subgraph ENT["GitHub Enterprise (Platform Boundary)"]
-    direction TB
-
-    %% ---- Enterprise governance surfaces ----
-    EP["Enterprise Policies\n- SSO/SAML + SCIM\n- IP allow list / network controls\n- Security products & reporting\n- Audit log / insights\n- Default settings (where applicable)"]
+  subgraph L1["Enterprise Platform Boundary"]
+    EP["GitHub Enterprise<br/>Identity, audit, and governance controls"]
   end
 
-  %% =========================
-  %% Cockpit / Control Plane Org
-  %% =========================
-  subgraph COCKPIT["Cockpit Organization (Control Plane / Platform Team)"]
-    direction TB
-
-    CAT["Catalog / Self-Service\n- org request templates\n- repo request templates\n- approved archetypes"]
-    AUTO["Automation & Provisioning\n(OpenTofu / Terraform / GitHub APIs)\n- create orgs\n- apply org baseline\n- bootstrap teams/repos"]
-    POLICY["Policy as Code\n- reusable workflows\n- rulesets as code\n- config registry"]
-    OBS["Observability & Compliance\n- drift detection\n- posture dashboards\n- exception registry"]
-    ESC["Exception Handling\n- break-glass process\n- time-bound waivers\n- approval + audit trail"]
-  end
-
-  %% =========================
-  %% Team / Project Orgs
-  %% =========================
-  subgraph ORGS["Team / Project Organizations (Security + Cost Boundaries)"]
+  subgraph L2["Cockpit Organization (Control Plane)"]
     direction LR
+    CAT["Service Catalog<br/>Org/repo request templates"]
+    AUTO["Provisioning Automation<br/>OpenTofu/Terraform + GitHub APIs"]
+    POLICY["Policy as Code<br/>Rulesets + reusable workflows"]
+    OBS["Observability<br/>Drift and posture dashboards"]
+    EXC["Exception Registry<br/>Time-bound waivers + approvals"]
+    CAT --> AUTO
+  end
 
-    subgraph ORG1["Org: product-a"]
+  subgraph L3["Team / Product Organizations (Security + Cost Boundaries)"]
+    direction LR
+    subgraph ORG_A["Org: product-a"]
       direction TB
-      O1BASE["Org Baseline (Mandatory)\n- SSO enforced\n- org rulesets\n- default repo settings\n- secret scanning / code scanning\n- dependency graph\n- allowed apps/runners"]
-      O1TEAM["Teams\n- owners (minimal)\n- maintainers\n- contributors"]
-      O1REPOS["Repositories (Landing Units)\n- services\n- libs\n- IaC\n- docs"]
+      A_BASE["Org Baseline"]
+      A_TEAM["Teams"]
+      A_REPO["Repositories"]
+      A_BASE --> A_REPO
+      A_TEAM --> A_REPO
     end
-
-    subgraph ORG2["Org: platform-shared"]
+    subgraph ORG_B["Org: platform-shared"]
       direction TB
-      O2BASE["Org Baseline (Mandatory)"]
-      O2TEAM["Teams"]
-      O2REPOS["Repositories"]
+      B_BASE["Org Baseline"]
+      B_TEAM["Teams"]
+      B_REPO["Repositories"]
+      B_BASE --> B_REPO
+      B_TEAM --> B_REPO
     end
-
-    subgraph ORG3["Org: sandbox"]
+    subgraph ORG_C["Org: sandbox"]
       direction TB
-      O3BASE["Org Baseline (Relaxed)\n- still secure-by-default\n- more experimentation\n- stricter cleanup/TTL"]
-      O3TEAM["Teams"]
-      O3REPOS["Repositories"]
+      C_BASE["Org Baseline (Relaxed)"]
+      C_TEAM["Teams"]
+      C_REPO["Repositories"]
+      C_BASE --> C_REPO
+      C_TEAM --> C_REPO
     end
   end
 
-  %% =========================
-  %% Repo Guardrails Pattern
-  %% =========================
-  subgraph REPOGOV["Repository Baseline (Guardrails)"]
-    direction TB
-    RS["Rulesets (Policy / Blueprint)\n- branch protections\n- required reviews\n- status checks\n- signed commits/tags (optional)\n- tag protections"]
-    WF["Reusable Workflows (Paved Roads)\n- build/test\n- SAST/SCA\n- release\n- provenance/SBOM"]
-    SEC["Security Defaults\n- secret scanning\n- dependabot\n- code scanning\n- vulnerability alerts"]
+  subgraph L4["Repository Guardrails (Applied in Every Repo)"]
+    direction LR
+    GATE["Guardrail Pack"]
+    RS["Rulesets<br/>Branch protection + required checks"]
+    WF["Reusable Workflows<br/>Build, test, scan, release"]
+    SEC["Security Defaults<br/>Secret scanning, code scanning, dependencies"]
+    GATE --> RS
+    GATE --> WF
+    GATE --> SEC
   end
 
-  %% =========================
-  %% Relationships
-  %% =========================
-  EP --> COCKPIT
+  EP --> AUTO
+  AUTO --> A_BASE
+  AUTO --> B_BASE
+  AUTO --> C_BASE
+  POLICY --> A_BASE
+  POLICY --> B_BASE
+  POLICY --> C_BASE
 
-  %% Self-service path
-  CAT --> AUTO
-  AUTO --> ORG1
-  AUTO --> ORG2
-  AUTO --> ORG3
+  A_REPO --> GATE
+  B_REPO --> GATE
+  C_REPO --> GATE
 
-  %% Baselines applied everywhere
-  POLICY --> O1BASE
-  POLICY --> O2BASE
-  POLICY --> O3BASE
-
-  %% Repo guardrails applied inside orgs
-  O1REPOS --> REPOGOV
-  O2REPOS --> REPOGOV
-  O3REPOS --> REPOGOV
-
-  %% Compliance feedback loop
   OBS --> EP
-  OBS --> O1BASE
-  OBS --> O2BASE
-  OBS --> O3BASE
+  OBS --> A_BASE
+  OBS --> B_BASE
+  OBS --> C_BASE
 
-  %% Exceptions are controlled
-  ESC -. "waiver (time-bound)\n+ audit trail" .-> O1BASE
-  ESC -. "waiver (time-bound)\n+ audit trail" .-> RS
+  EXC -. "waiver + expiry + audit" .-> A_BASE
+  EXC -. "waiver + expiry + audit" .-> GATE
 
-  %% Teams operate repos within boundaries
-  O1TEAM --> O1REPOS
-  O2TEAM --> O2REPOS
-  O3TEAM --> O3REPOS
+  classDef enterprise fill:#fff4e5,stroke:#d4a72c,stroke-width:1.5px,color:#1f2328;
+  classDef control fill:#e7f0ff,stroke:#218bff,stroke-width:1.4px,color:#1f2328;
+  classDef org fill:#f6f8fa,stroke:#8c959f,stroke-width:1.2px,color:#1f2328;
+  classDef guard fill:#eaf9f1,stroke:#2da44e,stroke-width:1.4px,color:#1f2328;
+
+  class EP enterprise;
+  class CAT,AUTO,POLICY,OBS,EXC control;
+  class A_BASE,A_TEAM,A_REPO,B_BASE,B_TEAM,B_REPO,C_BASE,C_TEAM,C_REPO org;
+  class GATE,RS,WF,SEC guard;
 ```
 
 ## The mapping
