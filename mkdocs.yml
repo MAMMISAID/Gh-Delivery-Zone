@@ -1,0 +1,61 @@
+site_name: GitHub Enterprise Landing Zone
+site_description: Operating model + reference implementation for GitHub Enterprise at scale
+repo_url: https://github.com/Gh-Delivery-Zone/Documentation
+repo_name: Gh-Delivery-Zone/Documentation
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  font: false
+  palette:
+    - scheme: default
+      primary: white
+      accent: blue
+  features:
+    - navigation.indexes
+    - content.action.edit
+    - content.action.view
+    - content.code.copy
+    - toc.follow
+  icon:
+    repo: fontawesome/brands/github
+
+extra_css:
+  - stylesheets/github-docs.css
+
+extra_javascript:
+  - javascripts/header-home-link.js
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.inlinehilite
+  - pymdownx.highlight
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - toc:
+      permalink: true
+
+nav:
+  - Get Started: getting-started.md
+  - Architecture:
+      - Core Mental Model: architecture/mental-model.md
+      - Organization Strategy: architecture/org-strategy.md
+  - Operating model:
+      - Roles & RACI: operating-model/roles-raci.md
+      - Exception Process: operating-model/exception-process.md
+  - Guardrails:
+      - Repository Baseline: guardrails/repo-baseline.md
+      - Rulesets: guardrails/rulesets.md
+      - Reusable Workflows: guardrails/reusable-workflows.md
+  - How-to:
+      - Consume Framework: how-to/consume-framework.md
+      - Onboarding a Team: how-to/onboarding-a-team.md
+  - Decisions (ADRs):
+      - Documentation Stack: adr/0001-docs-stack.md
