@@ -2,3 +2,4 @@
 .venv
 skills/**/*
 site/**/*
+.claude/settings.local.json

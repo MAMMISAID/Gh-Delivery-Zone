@@ -1,0 +1,31 @@
+<mxfile host="65bd71144e">
+    <diagram id="6IhOjhXNRZr4MpXcqJxz" name="Page-1">
+        <mxGraphModel dx="1260" dy="463" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="" style="rounded=1;whiteSpace=wrap;html=1;arcSize=8;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="40" width="760" height="330" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="60" y="60" width="200" height="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Boostrap you environment&lt;/h1&gt;&lt;p&gt;You need to purchase the GitHub Entreprise Managed Users.&lt;br&gt;if you are not using Enterprise Manage Users, dont worry you still can adpot the framwork and the materials&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="70" y="80" width="180" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="280" y="60" width="200" height="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Get Setup Admin Account&lt;/h1&gt;&lt;p&gt;Once the entreprise is create you may need to wait&amp;nbsp; few hours (if you selected europe data residancy).&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="290" y="80" width="180" height="250" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="500" y="60" width="200" height="290" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;Create The Cockpit Org&lt;/h1&gt;&lt;p&gt;you will need to create the Cockpit organization&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="510" y="80" width="180" height="250" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
