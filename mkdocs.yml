@@ -26,6 +26,10 @@ extra_css:
 extra_javascript:
   - javascripts/header-home-link.js
 
+plugins:
+  - search
+  - drawio
+
 markdown_extensions:
   - admonition
   - pymdownx.details

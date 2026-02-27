@@ -9,17 +9,19 @@ This project is a reference architecture + reference implementation for operatin
 
 It is inspired by **Azure Landing Zone** principles, but adapted to GitHub realities: repos are disposable, platforms are long-lived, and guardrails must be enforced by default.
 
+
 ## Who this is for
 
 - Platform engineering / DevOps teams running GitHub Enterprise
 - Security & governance teams defining guardrails
 - Cloud / enterprise architects designing operating models
 - Product teams who want **clear paved roads** instead of bespoke approvals
-- Companies moving from github mono org to multi org
+- Companies moving from GitHub mono org to multi org
 
 ## What you get
 
 ### 1) An operating model (docs)
+
 A clear model for:
 
 - enterprise and organization boundaries
@@ -28,6 +30,7 @@ A clear model for:
 - what breaks at scale if you don’t standardize early
 
 ### 2) A reference implementation (code)
+
 Reusable building blocks (modules + examples) to implement:
 
 - organization baseline (policies, identity, governance)
@@ -54,33 +57,15 @@ An **organization is a security and cost boundary**.
 
 ## Requirements
 
-- Github Cloud Organization (to inssure the code compatibilty), you can adopt the framework and implement it on github server.
+- Github Cloud Organization (to ensure the code compatibility), you can adopt the framework and implement it on GitHub Server.
 - Github Entreprise Admin Access
 
 
-## How to use this repo
+## Adoption Journey
 
-### If you want to adopt it
-1. Read **Architecture** and **Operating model** first (understand the boundaries)
-2. Review **Guardrails** (what is enforced by default)
-3. Use **Examples** to onboard your first organization/repositories
-4. Adapt configuration — avoid forking unless you must
+The following diagram illustrates the end-to-end journey for adopting the GitHub Enterprise Delivery Zone framework.
 
-### If you want to contribute
-- Every change should include:
-  - docs update (why + impact)
-  - at least one example showing usage
-- Decisions that change behavior should include an ADR in `docs/adr/`
-
-## Non-goals
-
-This is **not**:
-
-- a click-by-click tutorial for GitHub UI
-- a one-size-fits-all “golden repo” template
-- a replacement for your security program
-
-It *is* a set of proven patterns, defaults, and tradeoffs you can use to build your own enterprise-grade GitHub operating model.
+![Page-1](medias/Journey.drawio)
 
 ---
 
