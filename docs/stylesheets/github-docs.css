@@ -1,21 +1,21 @@
-/* GitHub-like visual layer on top of MkDocs Material. */
+/* GitHub-like visual layer on top of MkDocs Material.
+   Color tokens aligned to Primer (primer.style/foundations/color). */
 :root {
   --gh-bg: #ffffff;
   --gh-subtle-bg: #f6f8fa;
-  --gh-muted-bg: #f3f4f6;
-  --gh-border: #d0d7de;
-  --gh-border-muted: #d8dee4;
-  --gh-text: #24292f;
-  --gh-muted-text: #4d5560;
+  --gh-border: #d1d9e0;
+  --gh-border-muted: #d1d9e0b3;
+  --gh-text: #1f2328;
+  --gh-muted-text: #59636e;
   --gh-link: #0969da;
-  --gh-link-hover: #054da6;
+  --gh-link-hover: #0550ae;
 }
 
 [data-md-color-scheme="default"] {
   --md-default-bg-color: var(--gh-bg);
   --md-default-fg-color: var(--gh-text);
   --md-default-fg-color--light: var(--gh-muted-text);
-  --md-default-fg-color--lighter: #57606a;
+  --md-default-fg-color--lighter: #59636e;
   --md-default-fg-color--lightest: #6e7781;
   --md-code-bg-color: var(--gh-subtle-bg);
   --md-code-fg-color: #1f2328;
@@ -29,7 +29,8 @@
 body,
 input,
 button {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 /* --- Focus indicators (WCAG 2.4.7) --- */
@@ -73,7 +74,7 @@ button {
   left: 0;
   background: var(--gh-link);
   color: #ffffff;
-  padding: 0.5rem 1rem;
+  padding: 8px 16px;
   text-decoration: none;
   border-radius: 0 0 4px 0;
   z-index: 9999;
@@ -91,7 +92,7 @@ button {
 .md-header {
   color: var(--gh-text);
   background: var(--gh-subtle-bg);
-  border-bottom: 1px solid var(--gh-border-muted);
+  border-bottom: 1px solid var(--gh-border);
   box-shadow: none;
 }
 
@@ -155,62 +156,68 @@ button {
   font-weight: 600;
 }
 
-/* --- Typography --- */
+/* --- Typography (Primer markdown) --- */
 
 .md-typeset {
-  font-size: 1rem;
-  line-height: 1.75;
+  line-height: 1.5;
 }
 
 .md-typeset h1,
 .md-typeset h2,
-.md-typeset h3 {
-  color: #1f2328;
+.md-typeset h3,
+.md-typeset h4 {
+  color: var(--gh-text);
   font-weight: 600;
-  letter-spacing: -0.015em;
+  line-height: 1.25;
 }
 
 .md-typeset h1 {
-  font-size: 2rem;
-  border-bottom: 1px solid var(--gh-border-muted);
+  font-size: 2em;
+  border-bottom: 1px solid var(--gh-border);
   margin-top: 0;
-  margin-bottom: 1.25rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 16px;
+  padding-bottom: 0.3em;
 }
 
 .md-typeset h2 {
-  font-size: 1.5rem;
-  border-bottom: 1px solid #eaeef2;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  padding-bottom: 0.35rem;
+  font-size: 1.5em;
+  border-bottom: 1px solid var(--gh-border);
+  margin-top: 24px;
+  margin-bottom: 16px;
+  padding-bottom: 0.3em;
 }
 
 .md-typeset h3 {
-  font-size: 1.2rem;
-  margin-top: 1.75rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.25em;
+  margin-top: 24px;
+  margin-bottom: 16px;
+}
+
+.md-typeset h4 {
+  font-size: 1em;
+  margin-top: 24px;
+  margin-bottom: 16px;
 }
 
 .md-typeset p {
   color: var(--gh-text);
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 
 .md-typeset ul,
 .md-typeset ol {
   color: var(--gh-text);
-  margin-bottom: 1rem;
-  padding-left: 1.5em;
+  margin-bottom: 16px;
+  padding-left: 2em;
 }
 
 .md-typeset li {
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.25em;
 }
 
 .md-typeset li + li {
-  margin-top: 0.25rem;
+  margin-top: 0.25em;
 }
 
 /* Links: underline by default for color-blind users (WCAG 1.4.1) */
@@ -241,15 +248,17 @@ button {
   text-decoration: underline;
 }
 
-/* --- Code --- */
+/* --- Code (Primer markdown) --- */
 
 .md-typeset code {
   background: var(--gh-subtle-bg);
   border: 1px solid var(--gh-border);
   border-radius: 6px;
   color: #1f2328;
-  padding: 0.12em 0.35em;
-  font-size: 0.86em;
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
+    "Liberation Mono", monospace;
+  font-size: 85%;
+  padding: 0.2em 0.4em;
 }
 
 .md-typeset pre > code {
@@ -261,7 +270,9 @@ button {
 .md-typeset pre {
   background: #f6f8fa;
   border: 1px solid var(--gh-border);
-  border-radius: 8px;
+  border-radius: 6px;
+  font-size: 85%;
+  line-height: 1.45;
 }
 
 /* --- Mermaid diagrams --- */
@@ -270,8 +281,8 @@ button {
 .md-typeset .mermaid {
   background: #ffffff;
   border: 1px solid var(--gh-border);
-  border-radius: 12px;
-  padding: 0.9rem;
+  border-radius: 6px;
+  padding: 16px;
 }
 
 .md-typeset pre.mermaid > code {
@@ -292,7 +303,8 @@ button {
 
 .md-typeset blockquote {
   color: var(--gh-muted-text);
-  border-left: 0.25rem solid var(--gh-border);
+  border-left: 0.25em solid var(--gh-border);
+  padding: 0 1em;
 }
 
 /* --- Tables (responsive for WCAG 1.4.10 Reflow) --- */
@@ -302,19 +314,23 @@ button {
   overflow-x: auto;
   border: 1px solid var(--gh-border);
   border-collapse: collapse;
-  margin-top: 1rem;
-  margin-bottom: 1.5rem;
+  margin-top: 0;
+  margin-bottom: 16px;
 }
 
 .md-typeset table:not([class]) th,
 .md-typeset table:not([class]) td {
   border: 1px solid var(--gh-border);
-  padding: 0.5rem 0.75rem;
+  padding: 6px 13px;
 }
 
 .md-typeset table:not([class]) th {
   background: var(--gh-subtle-bg);
   font-weight: 600;
+}
+
+.md-typeset table:not([class]) tr:nth-child(2n) {
+  background: var(--gh-subtle-bg);
 }
 
 /* --- Admonitions --- */
@@ -334,16 +350,18 @@ button {
 /* --- Horizontal rules --- */
 
 .md-typeset hr {
-  margin-top: 2rem;
-  margin-bottom: 1.5rem;
-  border-color: var(--gh-border-muted);
+  height: 0.25em;
+  margin: 24px 0;
+  padding: 0;
+  background-color: var(--gh-border);
+  border: 0;
 }
 
 /* --- Content area --- */
 
 .md-content__inner {
-  padding-top: 1.5rem;
-  padding-bottom: 2rem;
+  padding-top: 24px;
+  padding-bottom: 32px;
 }
 
 .md-content__button {
@@ -385,7 +403,7 @@ button {
 
   .md-typeset table:not([class]) th,
   .md-typeset table:not([class]) td {
-    padding: 0.4rem 0.5rem;
+    padding: 4px 8px;
   }
 }
 
