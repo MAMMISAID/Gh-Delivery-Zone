@@ -286,8 +286,8 @@ button {
   }
 
   .md-content__inner {
-    margin-inline: auto;
-    max-width: min(76ch, 100%);
+    margin-inline: 0;
+    max-width: 100%;
   }
 
   .md-sidebar--secondary {
