@@ -46,8 +46,8 @@ For each changed file, check and correct ALL of the following:
 - Ensure proper admonition indentation (4 spaces for content inside admonitions)
 
 **Naming and Terminology:**
-- Project name must be **GitHub Enterprise Delivery Zone** — never "Landing Zone" when referring to this project
-- "Azure Landing Zone" is a proper product name — keep as-is when referencing Azure
+- Project name must be **GitHub Enterprise Delivery Zone** — never "Delivery Zone" when referring to this project
+- "Azure Delivery Zone" is a proper product name — keep as-is when referencing Azure
 - Nav titles in the file must match `mkdocs.yml` entries exactly
 
 **Material for MkDocs Specifics:**

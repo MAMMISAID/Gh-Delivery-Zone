@@ -1,6 +1,6 @@
 # Repository Baseline
 
-Every repository is a **landing unit**. It is not just a code container — it is a security surface, a compliance scope, and an operational boundary. Before a single line of code is merged, the repo must meet a minimum standard that makes it safe, observable, consistent, and auditable.
+Every repository is a **delivery unit**. It is not just a code container — it is a security surface, a compliance scope, and an operational boundary. Before a single line of code is merged, the repo must meet a minimum standard that makes it safe, observable, consistent, and auditable.
 
 This page defines what that standard is, how it is enforced, and how you measure it.
 

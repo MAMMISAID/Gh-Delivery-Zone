@@ -7,7 +7,7 @@ This project is a reference architecture + reference implementation for operatin
 - Automation over manual process
 - Developer self-service without chaos
 
-It is inspired by **Azure Landing Zone** principles, but adapted to GitHub realities: repos are disposable, platforms are long-lived, and guardrails must be enforced by default.
+It is inspired by **Azure Delivery Zone** principles, but adapted to GitHub realities: repos are disposable, platforms are long-lived, and guardrails must be enforced by default.
 
 ## Who this is for
 
@@ -41,14 +41,14 @@ Reusable building blocks (modules + examples) to implement:
 
 We use this mapping throughout the docs:
 
-| Azure Landing Zone | GitHub Enterprise Landing Zone |
+| Azure Delivery Zone | GitHub Enterprise Delivery Zone |
 | --- | --- |
 | Tenant / Management Group | GitHub Enterprise |
 | Subscription | GitHub Organization |
 | Resource Group | Repository |
 | Policy / Blueprint | Rulesets & Reusable Workflows |
 
-A **repository is a landing unit**, not just a code container.  
+A **repository is a delivery unit**, not just a code container.  
 An **organization is a security and cost boundary**.  
 **GitHub Enterprise is a platform**, not a tool.
 

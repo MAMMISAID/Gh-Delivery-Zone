@@ -1,15 +1,13 @@
 # Organization Strategy
-
-Organizations are the most important design choice in a GitHub Enterprise Landing Zone.
-
+Organizations are the most important design choice in a GitHub Enterprise  Zone. They define your security and ownership boundaries, so getting them right early is critical to avoid sprawl and fragmentation later on.
 If you get org boundaries wrong, everything downstream becomes harder:
 
-- permissions sprawl
-- unclear ownership
-- messy audit trails
-- inconsistent guardrails
-- billing/chargeback becomes guesswork
-- incidents have a larger blast radius than they should
+- Permissions sprawl
+- Unclear ownership
+- Messy audit trails
+- Inconsistent guardrails
+- Billing/Chargeback becomes guesswork
+- Incidents have a larger blast radius than they should
 
 This page gives an opinionated framework for deciding **how many organizations you need**, and **how to structure them**.
 
@@ -17,14 +15,14 @@ This page gives an opinionated framework for deciding **how many organizations y
 
 An organization is a:
 
-- **security boundary** (membership, roles, repo access patterns)
-- **ownership boundary** (who is accountable for standards and exceptions)
-- **policy boundary** (where you enforce default rulesets, workflows, and controls)
-- **blast-radius boundary** (mistakes and incidents should be containable)
-- **billing boundary** (chargeback/showback needs clean separation)
+- **Security boundary** (membership, roles, repo access patterns)
+- **Ownership boundary** (who is accountable for standards and exceptions)
+- **Policy boundary** (where you enforce default rulesets, workflows, and controls)
+- **Blast-radius boundary** (mistakes and incidents should be containable)
+- **Billing boundary** (chargeback/showback needs clean separation)
 
-A repository is a landing unit.
-An organization is the zone that makes those landing units governable at scale.
+A repository is a delivery unit.
+An organization is the zone that makes those delivery units governable at scale.
 
 ## The default pattern
 
