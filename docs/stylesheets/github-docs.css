@@ -83,12 +83,11 @@ button {
   content: "Navigation";
   font-size: 0.95rem;
   font-weight: 600;
-  margin-left: 0.35rem;
 }
 
 .md-typeset {
-  font-size: 0.95rem;
-  line-height: 1.65;
+  font-size: 1rem;
+  line-height: 1.75;
 }
 
 .md-typeset h1,
@@ -96,26 +95,50 @@ button {
 .md-typeset h3 {
   color: #1f2328;
   font-weight: 600;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
 }
 
 .md-typeset h1 {
   font-size: 2rem;
   border-bottom: 1px solid var(--gh-border-muted);
-  margin-bottom: 1rem;
-  padding-bottom: 0.4rem;
+  margin-top: 0;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.5rem;
 }
 
 .md-typeset h2 {
-  font-size: 1.45rem;
+  font-size: 1.5rem;
   border-bottom: 1px solid #eaeef2;
-  padding-bottom: 0.3rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.35rem;
 }
 
-.md-typeset p,
+.md-typeset h3 {
+  font-size: 1.2rem;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.md-typeset p {
+  color: var(--gh-text);
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
 .md-typeset ul,
 .md-typeset ol {
   color: var(--gh-text);
+  margin-bottom: 1rem;
+  padding-left: 1.5em;
+}
+
+.md-typeset li {
+  margin-bottom: 0.35rem;
+}
+
+.md-typeset li + li {
+  margin-top: 0.25rem;
 }
 
 .md-typeset a {
@@ -179,15 +202,19 @@ button {
 .md-typeset table:not([class]) {
   border: 1px solid var(--gh-border);
   border-collapse: collapse;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .md-typeset table:not([class]) th,
 .md-typeset table:not([class]) td {
   border: 1px solid var(--gh-border);
+  padding: 0.5rem 0.75rem;
 }
 
 .md-typeset table:not([class]) th {
   background: var(--gh-subtle-bg);
+  font-weight: 600;
 }
 
 .md-typeset .admonition,
@@ -200,6 +227,17 @@ button {
 .md-typeset .admonition-title,
 .md-typeset summary {
   background: #eaeef2;
+}
+
+.md-typeset hr {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  border-color: var(--gh-border-muted);
+}
+
+.md-content__inner {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
 }
 
 .md-content__button {

@@ -2,13 +2,12 @@
 
 This project is a reference architecture + reference implementation for operating **GitHub Enterprise at scale** (hundreds to thousands of repositories) with:
 
-- governance first
-- security by default
-- automation over manual process
-- developer self-service without chaos
+- Governance first
+- Security by default
+- Automation over manual process
+- Developer self-service without chaos
 
 It is inspired by **Azure Landing Zone** principles, but adapted to GitHub realities: repos are disposable, platforms are long-lived, and guardrails must be enforced by default.
-
 
 ## Who this is for
 
@@ -24,26 +23,26 @@ It is inspired by **Azure Landing Zone** principles, but adapted to GitHub reali
 
 A clear model for:
 
-- enterprise and organization boundaries
-- ownership (RACI), onboarding, and exceptions
-- guardrails design (what is mandatory vs configurable)
-- what breaks at scale if you don’t standardize early
+- Enterprise and organization boundaries
+- Ownership (RACI), onboarding, and exceptions
+- Guardrails design (what is mandatory vs configurable)
+- What breaks at scale if you don’t standardize early
 
 ### 2) A reference implementation (code)
 
 Reusable building blocks (modules + examples) to implement:
 
-- organization baseline (policies, identity, governance)
-- repository baseline (rulesets, protections, CI guardrails)
-- reusable workflows (avoid copy/paste YAML)
-- enforcement patterns (secure-by-default, opt-out only when justified)
+- Organization baseline (policies, identity, governance)
+- Repository baseline (rulesets, protections, CI guardrails)
+- Reusable workflows (avoid copy/paste YAML)
+- Enforcement patterns (secure-by-default, opt-out only when justified)
 
 ## Core mental model
 
 We use this mapping throughout the docs:
 
 | Azure Landing Zone | GitHub Enterprise Landing Zone |
-|---|---|
+| --- | --- |
 | Tenant / Management Group | GitHub Enterprise |
 | Subscription | GitHub Organization |
 | Resource Group | Repository |
@@ -57,9 +56,8 @@ An **organization is a security and cost boundary**.
 
 ## Requirements
 
-- Github Cloud Organization (to ensure the code compatibility), you can adopt the framework and implement it on GitHub Server.
-- Github Entreprise Admin Access
-
+- GitHub Cloud Organization (to ensure the code compatibility), you can adopt the framework and implement it on GitHub Server.
+- GitHub Enterprise Admin Access
 
 ## Adoption Journey
 
