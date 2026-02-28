@@ -1,7 +1,7 @@
-site_name: GitHub Enterprise Landing Zone
+site_name: GitHub Enterprise Delivery Zone
 site_description: Operating model + reference implementation for GitHub Enterprise at scale
-repo_url: https://github.com/Gh-Delivery-Zone/Documentation
-repo_name: Gh-Delivery-Zone/Documentation
+repo_url: https://github.com/MAMMISAID/Gh-Delivery-Zone
+repo_name: MAMMISAID/Gh-Delivery-Zone
 edit_uri: edit/main/docs/
 
 theme:

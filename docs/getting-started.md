@@ -19,7 +19,7 @@ It is inspired by **Azure Landing Zone** principles, but adapted to GitHub reali
 
 ## What you get
 
-### 1) An operating model (docs)
+### An operating model (docs)
 
 A clear model for:
 
@@ -28,7 +28,7 @@ A clear model for:
 - Guardrails design (what is mandatory vs configurable)
 - What breaks at scale if you don’t standardize early
 
-### 2) A reference implementation (code)
+### A reference implementation (code)
 
 Reusable building blocks (modules + examples) to implement:
 
