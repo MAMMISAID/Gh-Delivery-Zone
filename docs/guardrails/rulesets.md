@@ -57,6 +57,13 @@ flowchart TB
   class R1 repo;
 ```
 
+<details>
+<summary>Text description of ruleset layers diagram</summary>
+
+Three layers stack top to bottom. Enterprise Layer contains identity/SSO enforcement, audit log streaming, and IP allow-list. Organization Layer contains default-branch-protection, ci-enforcement, and release-protection rulesets. Repository Layer (optional) contains team-specific additions such as stricter review counts or required deployments. Each layer inherits and adds to the layer above.
+
+</details>
+
 ### Enterprise layer
 
 Set at the GitHub Enterprise level. These are identity, audit, and network controls. They apply to every organization and every repository. Examples: SAML/SSO enforcement, audit log streaming, IP allow-lists.

@@ -71,6 +71,13 @@ flowchart TB
   class REPO_A1,REPO_A2,REPO_B1,REPO_B2 product;
 ```
 
+<details>
+<summary>Text description of reusable workflows architecture diagram</summary>
+
+The Platform Org (cockpit) contains five workflow files: build.yml, test.yml, security-scan.yml, release.yml, and dependency-update.yml. Two Product Orgs consume these workflows. Product Org A has frontend-app (calls build + test) and backend-api (calls build + test + security-scan). Product Org B has data-pipeline (calls build + security-scan) and mobile-app (calls build + test + release). Arrows show which workflows each repo consumes.
+
+</details>
+
 ### How it works
 
 1. The platform team maintains workflow files in the cockpit org under `.github/workflows/`.

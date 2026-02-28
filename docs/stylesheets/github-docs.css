@@ -6,17 +6,17 @@
   --gh-border: #d0d7de;
   --gh-border-muted: #d8dee4;
   --gh-text: #24292f;
-  --gh-muted-text: #57606a;
+  --gh-muted-text: #4d5560;
   --gh-link: #0969da;
-  --gh-link-hover: #0550ae;
+  --gh-link-hover: #054da6;
 }
 
 [data-md-color-scheme="default"] {
   --md-default-bg-color: var(--gh-bg);
   --md-default-fg-color: var(--gh-text);
   --md-default-fg-color--light: var(--gh-muted-text);
-  --md-default-fg-color--lighter: #6e7781;
-  --md-default-fg-color--lightest: #8c959f;
+  --md-default-fg-color--lighter: #57606a;
+  --md-default-fg-color--lightest: #6e7781;
   --md-code-bg-color: var(--gh-subtle-bg);
   --md-code-fg-color: #1f2328;
   --md-typeset-a-color: var(--gh-link);
@@ -31,6 +31,62 @@ input,
 button {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
 }
+
+/* --- Focus indicators (WCAG 2.4.7) --- */
+
+*:focus-visible {
+  outline: 2px solid var(--gh-link);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.md-nav__link:focus-visible {
+  outline: 2px solid var(--gh-link);
+  outline-offset: 2px;
+  background: var(--gh-subtle-bg);
+}
+
+.md-search__input:focus-visible {
+  outline: 2px solid var(--gh-link);
+  outline-offset: 0;
+  border-color: var(--gh-link);
+}
+
+/* Prevent sticky header from obscuring focused elements (WCAG 2.4.11) */
+*:focus {
+  scroll-margin-top: calc(var(--md-header-height, 3.5rem) + 1rem);
+  scroll-margin-bottom: 1rem;
+}
+
+:target {
+  scroll-margin-top: calc(var(--md-header-height, 3.5rem) + 1rem);
+}
+
+/* --- Skip link (WCAG 2.4.1) --- */
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  background: var(--gh-link);
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  z-index: 9999;
+  font-weight: 600;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* --- Header --- */
 
 .md-header {
   color: var(--gh-text);
@@ -49,6 +105,8 @@ button {
   border: 1px solid var(--gh-border);
 }
 
+/* --- Layout --- */
+
 .md-main {
   background: var(--gh-bg);
 }
@@ -60,6 +118,8 @@ button {
 .md-sidebar--secondary .md-sidebar__scrollwrap {
   border-left: 1px solid var(--gh-border-muted);
 }
+
+/* --- Navigation --- */
 
 .md-nav__link {
   color: var(--gh-text);
@@ -75,15 +135,27 @@ button {
 .md-nav--primary > .md-nav__title[for="__drawer"] {
   align-items: center;
   display: flex;
-  font-size: 0;
+}
+
+.md-nav--primary > .md-nav__title[for="__drawer"] > * {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .md-nav--primary > .md-nav__title[for="__drawer"]::after {
   color: var(--gh-muted-text);
-  content: "Navigation";
   font-size: 0.95rem;
   font-weight: 600;
 }
+
+/* --- Typography --- */
 
 .md-typeset {
   font-size: 1rem;
@@ -141,14 +213,35 @@ button {
   margin-top: 0.25rem;
 }
 
+/* Links: underline by default for color-blind users (WCAG 1.4.1) */
 .md-typeset a {
   color: var(--gh-link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
 }
 
 .md-typeset a:hover {
   color: var(--gh-link-hover);
   text-decoration: underline;
+  text-decoration-thickness: 2px;
 }
+
+/* Navigation links don't need underline (obvious link context) */
+.md-nav__link,
+.md-header a,
+.md-footer a,
+.md-tabs a {
+  text-decoration: none;
+}
+
+.md-nav__link:hover,
+.md-header a:hover,
+.md-footer a:hover {
+  text-decoration: underline;
+}
+
+/* --- Code --- */
 
 .md-typeset code {
   background: var(--gh-subtle-bg);
@@ -171,7 +264,8 @@ button {
   border-radius: 8px;
 }
 
-/* Keep Mermaid diagrams crisp and "diagram-like", not code-block-like. */
+/* --- Mermaid diagrams --- */
+
 .md-typeset pre.mermaid,
 .md-typeset .mermaid {
   background: #ffffff;
@@ -194,12 +288,18 @@ button {
   max-width: 100%;
 }
 
+/* --- Blockquotes --- */
+
 .md-typeset blockquote {
   color: var(--gh-muted-text);
   border-left: 0.25rem solid var(--gh-border);
 }
 
+/* --- Tables (responsive for WCAG 1.4.10 Reflow) --- */
+
 .md-typeset table:not([class]) {
+  display: block;
+  overflow-x: auto;
   border: 1px solid var(--gh-border);
   border-collapse: collapse;
   margin-top: 1rem;
@@ -217,6 +317,8 @@ button {
   font-weight: 600;
 }
 
+/* --- Admonitions --- */
+
 .md-typeset .admonition,
 .md-typeset details {
   background: #f6f8fa;
@@ -229,11 +331,15 @@ button {
   background: #eaeef2;
 }
 
+/* --- Horizontal rules --- */
+
 .md-typeset hr {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
   border-color: var(--gh-border-muted);
 }
+
+/* --- Content area --- */
 
 .md-content__inner {
   padding-top: 1.5rem;
@@ -243,6 +349,8 @@ button {
 .md-content__button {
   color: var(--gh-link);
 }
+
+/* --- Mobile layout --- */
 
 @media screen and (max-width: 76.234375em) {
   .md-sidebar--primary .md-sidebar__scrollwrap,
@@ -268,7 +376,21 @@ button {
   }
 }
 
-/* Desktop layout: keep both sidebars on edges, keep center content responsive. */
+/* --- Responsive tables at small viewports --- */
+
+@media (max-width: 30em) {
+  .md-typeset table:not([class]) {
+    font-size: 0.85rem;
+  }
+
+  .md-typeset table:not([class]) th,
+  .md-typeset table:not([class]) td {
+    padding: 0.4rem 0.5rem;
+  }
+}
+
+/* --- Desktop layout --- */
+
 @media screen and (min-width: 76.25em) {
   .md-main__inner.md-grid {
     align-items: start;
@@ -325,7 +447,7 @@ button {
 
   .md-content__inner {
     margin-inline: 0;
-/mo    max-width: 100%;
+    max-width: 100%;
   }
 
   .md-content__inner .md-typeset {

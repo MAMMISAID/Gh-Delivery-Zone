@@ -57,6 +57,13 @@ flowchart LR
   class CLOSE terminal;
 ```
 
+<details>
+<summary>Text description of exception lifecycle diagram</summary>
+
+The exception lifecycle flows left to right: Request leads to Review, which leads to an Approve/Deny decision. If approved, the exception is Implemented, then Monitored until it reaches Expiry. At expiry, if still needed, a Renewal loops back to Review. If resolved or denied, the exception is Closed.
+
+</details>
+
 **Request:** The Product Team Lead submits a formal exception request through the service catalog.
 
 **Review:** The Platform Team validates the technical details. Security and Compliance assesses the risk.

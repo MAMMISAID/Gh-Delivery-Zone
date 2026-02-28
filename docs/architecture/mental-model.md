@@ -102,6 +102,13 @@ flowchart TB
   class GATE,RS,WF,SEC guard;
 ```
 
+<details>
+<summary>Text description of architecture diagram</summary>
+
+The architecture has four layers. Layer 1 (Enterprise Platform Boundary) contains GitHub Enterprise controlling identity, audit, and governance. Layer 2 (Cockpit Organization) is the control plane with five components: Service Catalog, Provisioning Automation, Policy as Code, Observability, and Exception Registry. Layer 3 (Team/Product Organizations) shows three example orgs (product-a, platform-shared, sandbox), each with an org baseline, teams, and repositories. Layer 4 (Repository Guardrails) applies rulesets, reusable workflows, and security defaults to every repository. Data flows from Enterprise to Automation, which provisions org baselines. Policies flow to baselines. All repositories inherit guardrails. Observability monitors all layers. The Exception Registry can grant time-bound waivers.
+
+</details>
+
 ## The mapping
 
 We reuse Azure Landing Zone thinking because it gives a clean hierarchy of boundaries.

@@ -63,7 +63,14 @@ An **organization is a security and cost boundary**.
 
 The following diagram illustrates the end-to-end journey for adopting the GitHub Enterprise Delivery Zone framework.
 
-![Page-1](medias/Journey.drawio)
+![Page-1](medias/Journey.drawio){ aria-label="Adoption journey diagram showing five phases: Bootstrap your environment, Enterprise Setup, KickStarted with reusable modules, Create the Cockpit Org, and Start Deploying Delivery Zones." }
+
+<details>
+<summary>Text description of adoption journey diagram</summary>
+
+The diagram shows five phases arranged left to right. Phase 1 (Bootstrap your environment): Purchase GitHub Enterprise Managed Users. Phase 2 (Enterprise Setup): Configure the IdP for authentication. Phase 3 (KickStarted): Reusable modules and actions to empower Delivery Zone users. Phase 4 (Create the Cockpit Org): Create the central control-plane organization. Phase 5 (Start Deploying Delivery Zones): Begin onboarding users and leveraging Delivery Zones. Below, a journey arrow shows the stages: Adoption and Setup, Create Platform, Governance Harmonie, Self Service, and Maintenance and Evolution. Task boxes map granular actions to each stage.
+
+</details>
 
 ---
 

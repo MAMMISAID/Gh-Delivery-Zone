@@ -99,6 +99,13 @@ flowchart LR
   class D,E,F enforce;
 ```
 
+<details>
+<summary>Text description of baseline application diagram</summary>
+
+The diagram shows two groups. On the left (Baseline Application): Org Creation applies rulesets, Repo Creation provisions from templates, and Continuous drift detection runs on schedule. On the right (Enforcement): org-level rulesets, required workflows, and a posture dashboard. Each application mechanism connects to its corresponding enforcement tool.
+
+</details>
+
 !!! tip
     Treat baseline enforcement like infrastructure drift detection. If a control disappears, the system should detect it and alert — not wait for the next audit.
 
