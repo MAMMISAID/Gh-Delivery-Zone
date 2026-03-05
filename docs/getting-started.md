@@ -34,7 +34,7 @@ Reusable building blocks (modules + examples) to implement:
 
 - Organization baseline (policies, identity, governance)
 - Repository baseline (rulesets, protections, CI guardrails)
-- Reusable workflows (avoid copy/paste YAML)
+- Organization and repository Rulesets and reusable workflows for common patterns (e.g. code scanning, dependency updates, issue templates)
 - Enforcement patterns (secure-by-default, opt-out only when justified)
 
 ## Core mental model
