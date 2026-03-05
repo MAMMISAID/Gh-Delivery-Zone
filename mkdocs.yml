@@ -22,6 +22,11 @@ theme:
   icon:
     repo: fontawesome/brands/github
 
+extra:
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/ammisaid/
+
 extra_css:
   - stylesheets/github-docs.css
 

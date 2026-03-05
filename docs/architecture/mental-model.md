@@ -3,13 +3,15 @@
 A delivery zone is a **platform operating model** with guardrails and paved roads.
 In Azure, the Delivery Zone concept exists because *scale breaks informal governance*.
 
-GitHub Enterprise has the same problem: once you cross a certain number of repositories and teams, you get:
+GitHub Enterprise has the problem: once you cross a certain number of repositories and teams, you get:
 
 - inconsistent protection rules
 - insecure workflows and token sprawl
 - duplicated YAML and random CI patterns
 - unclear ownership and exception chaos
 - “we can’t audit it” moments
+
+If  you are in monolithic org, you will hit issues about activating github features for all companies teams, instead of activating them for specific orgs. If you are in multi-org, you will hit issues about inconsistent guardrails and security posture across orgs, and lack of visibility and control for platform teams.
 
 The GitHub Enterprise Delivery Zone is how you prevent that.
 
@@ -20,7 +22,13 @@ The GitHub Enterprise Delivery Zone is how you prevent that.
 <details>
 <summary>Text description of architecture diagram</summary>
 
-The architecture has four layers. Layer 1 (Enterprise Platform Boundary) contains GitHub Enterprise controlling identity, audit, and governance. Layer 2 (Cockpit Organization) is the control plane with five components: Service Catalog, Provisioning Automation, Policy as Code, Observability, and Exception Registry. Layer 3 (Team/Product Organizations) shows three example orgs (product-a, platform-shared, sandbox), each with an org baseline, teams, and repositories. Layer 4 (Repository Guardrails) applies rulesets, reusable workflows, and security defaults to every repository. Data flows from Enterprise to Automation, which provisions org baselines. Policies flow to baselines. All repositories inherit guardrails. Observability monitors all layers. The Exception Registry can grant time-bound waivers.
+The architecture has four layers. 
+<ul>
+    <li>Layer 1: Enterprise Platform Boundary (GitHub Enterprise)</li>
+    <li>Layer 2: Cockpit Organization (Control Plane with Service Catalog, Provisioning Automation, Policy as Code, Observability, Exception Registry)</li>
+    <li>Layer 3: Team/Product Organizations (Example orgs: product-a, platform-shared, sandbox; each with org baseline, teams, repositories)</li>
+    <li>Layer 4: Repository Guardrails (Rulesets, Reusable Workflows, Security Defaults applied to every repository)</li>
+</ul>
 
 </details>
 
@@ -29,79 +37,51 @@ The architecture has four layers. Layer 1 (Enterprise Platform Boundary) contain
 We reuse Azure Delivery Zone thinking because it gives a clean hierarchy of boundaries.
 
 | Azure Delivery Zone | GitHub Enterprise Delivery Zone | Why it matters |
-| --- | ---| --- |
+| --- | --- | --- |
 | Tenant / Mgmt Group | GitHub Enterprise | Top-level platform boundary (identity, audit, governance) |
 | Subscription | GitHub Organization | **Security + cost boundary**; separation of duties; blast radius control |
 | Resource Group | Repository | **Delivery unit**: baseline controls, CI standards, lifecycle |
-| Policy / Blueprint | Rulesets & Reusable Workflows | Enforced guardrails + paved road automation |
+| Policy / Blueprint | Rulesets & Policies | Enforced guardrails + paved road automation |
 
 ### Key interpretation
+
 - **Enterprise** is the platform surface: identity, audit, governance primitives.
 - **Organization** is where you enforce boundaries (who can do what, where, and how).
 - **Repository** is where developers live — so guardrails must be automatic and default.
 
 ## What breaks at scale (and how this model prevents it)
 
-### 1) “Every repo is unique”
-**Symptom:** teams copy workflows, protections drift, security posture is unknown.
+### 1) “One org to rule them all”
 
-**Fix:** repositories get a baseline through:
+**Symptom:** Permission sprawl, audit complexity, blast radius is huge, billing is opaque.
 
-- rulesets (branch protections, required checks)
-- reusable workflows (standard build/test/scan)
-- a defined exception path (documented, time-bound, reviewed)
+**Fix:** Treat organizations as:
 
-### 2) “One org to rule them all”
-**Symptom:** permission sprawl, audit complexity, blast radius is huge, billing is opaque.
+- Product/portfolio boundaries (or regulatory boundaries)
+- Ownership boundaries (platform vs product responsibility)
+- Cost/billing boundaries (chargeback/showback)
+- Containment boundaries (incidents and mistakes don’t propagate)
 
-**Fix:** treat organizations as:
+### 2) “Security is a ticket queue”
 
-- product/portfolio boundaries (or regulatory boundaries)
-- ownership boundaries (platform vs product responsibility)
-- cost/billing boundaries (chargeback/showback)
-- containment boundaries (incidents and mistakes don’t propagate)
+**Symptom:** Platform team becomes gatekeeper; developers circumvent controls.
 
-### 3) “Security is a ticket queue”
-**Symptom:** platform team becomes gatekeeper; developers circumvent controls.
+**Fix:** Security-by-default with self-service:
 
-**Fix:** security-by-default with self-service:
+- Guardrails are enforced automatically
+- Paved roads are the easiest path
+- Opt-out exists but is explicit and measurable
+- Autonomy of team to request compliant delivery zone (aka: organization with baseline) with clear SLAs
 
-- guardrails are enforced automatically
-- paved roads are the easiest path
-- opt-out exists but is explicit and measurable
+### 3) "Configuration As Code" without reuse
 
-## Design principles (opinionated defaults)
+**Symptom:** Most of companies apply iac to cloud deployment but not for github assets management, leading to clicking and taking screenshots, copy/paste YAML, inconsistent patterns, and maintenance nightmares.
 
-1. **Governance first, automation second**  
-   Automate the policy you can explain and defend.
+**Fix:** Framework provides reusable modules and actions to implement guardrails as code:
 
-2. **Secure by default, opt-out only when justified**  
-   Exceptions are part of the model, not a failure of it.
-
-3. **Scale matters more than convenience**  
-   Small shortcuts turn into massive drift at 500+ repos.
-
-4. **Avoid YAML copy/paste anti-patterns**  
-   Reusable workflows are the platform API.
-
-5. **Platform enables, it doesn’t gatekeep**  
-   The goal is paved roads, not approvals.
-
-## What “baseline” means in this project
-
-A baseline is the minimum set of controls and conventions that make a repo:
-
-- safe to merge to default branch
-- observable (status checks, logs, evidence)
-- consistent to build and deploy
-- auditable with low effort
-
-Baselines should be:
-
-- opinionated
-- configurable
-- versioned over time
-- measurable (you can report compliance)
+- OpenTofu modules to configure Entreprise
+- OpenTofu modules to configure Organizations (baseline, teams, policies)
+- Drift detection and compliance reporting to identify repos that diverge from baseline, to monitor Orgnization and trigger remediation, and to report compliance over time.
 
 ---
 
