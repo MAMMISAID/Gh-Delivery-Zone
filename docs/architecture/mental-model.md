@@ -5,11 +5,11 @@ In Azure, the Delivery Zone concept exists because *scale breaks informal govern
 
 GitHub Enterprise has the problem: once you cross a certain number of repositories and teams, you get:
 
-- inconsistent protection rules
-- insecure workflows and token sprawl
-- duplicated YAML and random CI patterns
-- unclear ownership and exception chaos
-- “we can’t audit it” moments
+- Inconsistent protection rules
+- Insecure workflows and token sprawl
+- Duplicated YAML and random CI patterns
+- Unclear ownership and exception chaos
+- “We can’t audit it” moments
 
 If  you are in monolithic org, you will hit issues about activating github features for all companies teams, instead of activating them for specific orgs. If you are in multi-org, you will hit issues about inconsistent guardrails and security posture across orgs, and lack of visibility and control for platform teams.
 
