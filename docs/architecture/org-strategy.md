@@ -97,4 +97,4 @@ You know your org strategy is working when:
 
 ---
 
-Next: define enforcement with [Repository baseline](../guardrails/repo-baseline.md)
+Next: define enforcement with [Repository baseline](../guardrails/policies.md)

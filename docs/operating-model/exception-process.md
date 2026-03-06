@@ -14,10 +14,10 @@ When a team cannot comply with a specific guardrail -- due to technical constrai
 
 An exception is not:
 
-- a permanent opt-out
-- a feature request disguised as a waiver
-- a way to avoid the platform team's paved roads indefinitely
-- an approval to ignore security requirements
+- A permanent opt-out
+- A feature request disguised as a waiver
+- A way to avoid the platform team's paved roads indefinitely
+- An approval to ignore security requirements
 
 !!! note "Exceptions vs. configuration"
     If a guardrail supports a configuration option (e.g., choosing between two approved scanning tools), that is not an exception. Exceptions apply only when a mandatory control is being bypassed entirely.
@@ -26,36 +26,7 @@ An exception is not:
 
 Every exception follows the same lifecycle. No shortcuts, no special cases.
 
-```mermaid
-%%{init: {'theme': 'base', 'flowchart': {'curve': 'basis', 'nodeSpacing': 50, 'rankSpacing': 55}, 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif', 'lineColor': '#6e7781', 'primaryTextColor': '#1f2328'}}}%%
-flowchart LR
-  REQ["Request"]
-  REV["Review"]
-  DEC{{"Approve / Deny"}}
-  IMPL["Implement"]
-  MON["Monitor"]
-  EXP{{"Expire"}}
-  RENEW["Renew"]
-  CLOSE["Close"]
-
-  REQ --> REV
-  REV --> DEC
-  DEC -- Approved --> IMPL
-  DEC -- Denied --> CLOSE
-  IMPL --> MON
-  MON --> EXP
-  EXP -- Still needed --> RENEW
-  EXP -- Resolved --> CLOSE
-  RENEW --> REV
-
-  classDef process fill:#e7f0ff,stroke:#218bff,stroke-width:1.4px,color:#1f2328;
-  classDef decision fill:#fff4e5,stroke:#d4a72c,stroke-width:1.5px,color:#1f2328;
-  classDef terminal fill:#eaf9f1,stroke:#2da44e,stroke-width:1.4px,color:#1f2328;
-
-  class REQ,REV,IMPL,MON,RENEW process;
-  class DEC,EXP decision;
-  class CLOSE terminal;
-```
+![Exception lifecycle](../medias/exception-lifecycle.drawio)
 
 <details>
 <summary>Text description of exception lifecycle diagram</summary>
@@ -121,10 +92,10 @@ Every exception has an expiry date. There are no permanent exceptions in this mo
 
 **Renewal rules:**
 
-- [ ] Renewal requires a new request with updated justification
-- [ ] The remediation plan must show progress since the original request
-- [ ] If no progress has been made, the renewal is denied unless an executive sponsor intervenes
-- [ ] Consecutive renewals (3+) trigger an escalation to Security and Compliance for architectural review
+- :fontawesome-solid-square-check: Renewal requires a new request with updated justification
+- :fontawesome-solid-square-check: The remediation plan must show progress since the original request
+- :fontawesome-solid-square-check: If no progress has been made, the renewal is denied unless an executive sponsor intervenes
+- :fontawesome-solid-square-check: Consecutive renewals (3+) trigger an escalation to Security and Compliance for architectural review
 
 **Automatic re-enforcement:** When an exception expires, the Platform Team's automation re-applies the guardrail. The requesting team is notified 14 days and 3 days before expiry.
 
