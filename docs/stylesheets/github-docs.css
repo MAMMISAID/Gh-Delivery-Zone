@@ -347,6 +347,19 @@ button {
   background: #eaeef2;
 }
 
+/* --- Check lists (icon-based, no bullet) --- */
+
+.md-typeset ul li > .twemoji:first-child,
+.md-typeset ul li > .emojione:first-child,
+.md-typeset ul li > .gemoji:first-child {
+  margin-right: 0.4em;
+}
+
+.md-typeset ul:has(> li > .twemoji:first-child) {
+  list-style: none;
+  padding-left: 0.5em;
+}
+
 /* --- Horizontal rules --- */
 
 .md-typeset hr {

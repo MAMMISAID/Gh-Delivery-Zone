@@ -13,10 +13,10 @@ This role is typically held by a small group (2--3 people) in IT or platform eng
 
 Responsibilities:
 
-- [ ] Manage enterprise-level settings (SSO, EMU, audit log streaming)
-- [ ] Grant or revoke organization creation rights
-- [ ] Enforce enterprise-wide policies (e.g., IP allow lists, 2FA requirements)
-- [ ] Review enterprise audit logs on a regular cadence
+- :fontawesome-solid-square-check: Manage enterprise-level settings (SSO, EMU, audit log streaming)
+- :fontawesome-solid-square-check: Grant or revoke organization creation rights
+- :fontawesome-solid-square-check: Enforce enterprise-wide policies (e.g., IP allow lists, 2FA requirements)
+- :fontawesome-solid-square-check: Review enterprise audit logs on a regular cadence
 
 ### Platform Team
 
@@ -25,11 +25,10 @@ They build the paved roads that product teams consume.
 
 Responsibilities:
 
-- [ ] Build and maintain provisioning automation (org/repo creation, baseline application)
-- [ ] Author and version reusable workflows and composite actions
-- [ ] Define and enforce rulesets across organizations
-- [ ] Operate observability dashboards (drift detection, compliance posture)
-- [ ] Manage the exception registry (tracking, expiry enforcement)
+- :fontawesome-solid-square-check: Build and maintain provisioning automation (org/repo creation, baseline application)
+- :fontawesome-solid-square-check: Author and version reusable workflows and composite actions
+- :fontawesome-solid-square-check: Define and enforce rulesets across organizations
+- :fontawesome-solid-square-check: Operate observability dashboards (drift detection, compliance posture)
 
 ### Security and Compliance Team
 
@@ -38,10 +37,10 @@ They define what "secure by default" means, approve high-risk exceptions, and ow
 
 Responsibilities:
 
-- [ ] Define security and compliance requirements for guardrails
-- [ ] Approve or deny exceptions that affect security posture
-- [ ] Conduct periodic compliance reviews and audits
-- [ ] Validate that baselines meet regulatory obligations
+- :fontawesome-solid-square-check: Define security and compliance requirements for guardrails
+- :fontawesome-solid-square-check: Approve or deny exceptions that affect security posture
+- :fontawesome-solid-square-check: Conduct periodic compliance reviews and audits
+- :fontawesome-solid-square-check: Validate that baselines meet regulatory obligations
 
 ### Org Owner
 
@@ -50,22 +49,22 @@ They manage membership, team structures, and ensure that the baseline is applied
 
 Responsibilities:
 
-- [ ] Manage org membership and team assignments
-- [ ] Ensure repositories within the org follow the baseline
-- [ ] Approve org-level exception requests
-- [ ] Act as the escalation point for product teams in their org
+- :fontawesome-solid-square-check: Manage org membership and team assignments
+- :fontawesome-solid-square-check: Ensure repositories within the org follow the baseline
+- :fontawesome-solid-square-check: Approve org-level exception requests
+- :fontawesome-solid-square-check: Act as the escalation point for product teams in their org
 
 ### Product Team Lead
 
-The Product Team Lead owns a set of repositories and the people who contribute to them.
+In case the organization is a business unit and it is composed of multiple Product Teams, the Product Team Lead owns a set of repositories and the people who contribute to them.
 They are the first line of accountability for standards compliance within their team.
 
 Responsibilities:
 
-- [ ] Request new repositories through the service catalog
-- [ ] Ensure their team follows guardrails and workflows
-- [ ] Submit exception requests when a guardrail cannot be met
-- [ ] Onboard new developers to the team and its tooling
+- :fontawesome-solid-square-check: Request new repositories through the service catalog
+- :fontawesome-solid-square-check: Ensure their team follows guardrails and workflows
+- :fontawesome-solid-square-check: Submit exception requests when a guardrail cannot be met
+- :fontawesome-solid-square-check: Onboard new developers to the team and its tooling
 
 ### Developer
 
@@ -74,10 +73,10 @@ They should rarely need to think about governance -- that is the point.
 
 Responsibilities:
 
-- [ ] Follow repository conventions and branch protection rules
-- [ ] Use reusable workflows for CI/CD (no custom pipeline copies)
-- [ ] Report guardrail issues or friction through the appropriate channel
-- [ ] Participate in code review and status check enforcement
+- :fontawesome-solid-square-check: Follow repository conventions and rulesets
+- :fontawesome-solid-square-check: Use reusable workflows for CI/CD, security scans, and other automated processes
+- :fontawesome-solid-square-check: Report guardrail issues or friction through the appropriate channel
+- :fontawesome-solid-square-check: Participate in code review and status check enforcement
 
 ## RACI Matrix
 
