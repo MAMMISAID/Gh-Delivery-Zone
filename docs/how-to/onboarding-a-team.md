@@ -11,7 +11,7 @@ Complete this checklist before initiating the onboarding workflow:
 - [ ] A **team lead** has been identified and will be the primary contact throughout onboarding
 - [ ] The target **organization** has been decided (existing org or new org request)
 - [ ] **Access requests** have been submitted for all team members (GitHub Enterprise SSO enrollment)
-- [ ] The team lead understands the [baseline controls](../guardrails/repo-baseline.md) that will be applied
+- [ ] The team lead understands the [guardrails](../guardrails/policies.md) that will be applied
 - [ ] The team has reviewed [How to consume the framework](consume-framework.md)
 - [ ] A **team name** has been chosen following the naming convention (e.g., `team-<product>-<function>`)
 

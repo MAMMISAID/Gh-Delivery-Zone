@@ -2,7 +2,7 @@
 
 Rulesets are the **enforcement mechanism** for guardrails at scale. They replace legacy branch protection rules with a layered, auditable, org-level system that can be applied consistently across hundreds of repositories without manual configuration.
 
-If the [repository baseline](repo-baseline.md) defines *what* must be true, rulesets define *how* it is enforced.
+If [enterprise policies](policies.md) define *what* the platform allows, rulesets define *how* it is enforced.
 
 ## Why rulesets over branch protection rules
 
