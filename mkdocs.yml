@@ -67,7 +67,8 @@ nav:
       - Roles & RACI: operating-model/roles-raci.md
       - Exception Process: operating-model/exception-process.md
   - Guardrails:
-      - Repository Baseline: guardrails/repo-baseline.md
+      - Custom Properties: guardrails/custom-properties.md
+      - Policies: guardrails/policies.md
       - Rulesets: guardrails/rulesets.md
       - Reusable Workflows: guardrails/reusable-workflows.md
   - How-to:

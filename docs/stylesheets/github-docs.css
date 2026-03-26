@@ -299,6 +299,13 @@ button {
   max-width: 100%;
 }
 
+/* --- Draw.io diagrams --- */
+
+.md-typeset .mxgraph {
+  margin: 16px auto;
+  text-align: center;
+}
+
 /* --- Blockquotes --- */
 
 .md-typeset blockquote {
