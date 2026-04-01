@@ -26,7 +26,7 @@ An exception is not:
 
 Every exception follows the same lifecycle. No shortcuts, no special cases.
 
-![Exception lifecycle](../medias/exception-lifecycle.drawio)
+![Page-1](../medias/exception-lifecycle.drawio)
 
 <details>
 <summary>Text description of exception lifecycle diagram</summary>
@@ -167,4 +167,4 @@ Renewing exceptions without reviewing whether the remediation plan has progresse
 
 ---
 
-Next: [Repository baseline](../guardrails/repo-baseline.md)
+Next: [Enterprise policies](../guardrails/policies.md)

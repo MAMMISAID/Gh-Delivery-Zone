@@ -10,7 +10,7 @@ Before you start, make sure the following are in place:
 
 - [ ] Your team has been onboarded to a GitHub Enterprise organization (see [Onboarding a team](onboarding-a-team.md))
 - [ ] You have **member** (or higher) access to your product organization
-- [ ] You understand what baselines are and why they exist (see [Repository baseline](../guardrails/repo-baseline.md))
+- [ ] You understand what guardrails are and why they exist (see [Enterprise policies](../guardrails/policies.md))
 - [ ] You know which Cockpit organization hosts the platform templates and reusable workflows
 - [ ] Your team lead has been added to the appropriate GitHub team with write permissions
 
