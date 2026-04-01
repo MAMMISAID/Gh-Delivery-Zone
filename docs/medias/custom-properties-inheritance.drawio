@@ -1,0 +1,54 @@
+<mxfile host="app.diagrams.net" modified="2026-03-26T00:00:00.000Z" agent="draw.io" version="24.0.0" type="device">
+  <diagram name="Page-1" id="custom-properties-inheritance">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="800" pageHeight="500" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Enterprise Level group -->
+        <mxCell id="10" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e5;strokeColor=#d4a72c;strokeWidth=1.5;arcSize=10;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="200" y="20" width="400" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="11" value="&lt;b&gt;Enterprise Level&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#1f2328;" vertex="1" parent="1">
+          <mxGeometry x="330" y="25" width="140" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="12" value="Property schema definition&lt;br&gt;(name, type, required, default value)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e5;strokeColor=#d4a72c;strokeWidth=1;fontSize=12;fontColor=#1f2328;" vertex="1" parent="1">
+          <mxGeometry x="260" y="55" width="280" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow Enterprise to Org -->
+        <mxCell id="20" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6e7781;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1" source="10" target="30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Organization Level group -->
+        <mxCell id="30" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.5;arcSize=10;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="200" y="170" width="400" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="31" value="&lt;b&gt;Organization Level&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#1f2328;" vertex="1" parent="1">
+          <mxGeometry x="320" y="175" width="160" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="32" value="Inherited schema +&lt;br&gt;optional org-level properties" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1;fontSize=12;fontColor=#1f2328;" vertex="1" parent="1">
+          <mxGeometry x="260" y="205" width="280" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Arrow Org to Repo -->
+        <mxCell id="40" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeColor=#6e7781;strokeWidth=1.5;endArrow=block;endFill=1;" edge="1" parent="1" source="30" target="50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Repository Level group -->
+        <mxCell id="50" value="" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.5;arcSize=10;verticalAlign=top;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="200" y="320" width="400" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="51" value="&lt;b&gt;Repository Level&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=top;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=14;fontColor=#1f2328;" vertex="1" parent="1">
+          <mxGeometry x="330" y="325" width="140" height="25" as="geometry" />
+        </mxCell>
+        <mxCell id="52" value="Property values assigned&lt;br&gt;per repository" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1;fontSize=12;fontColor=#1f2328;" vertex="1" parent="1">
+          <mxGeometry x="260" y="355" width="280" height="50" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

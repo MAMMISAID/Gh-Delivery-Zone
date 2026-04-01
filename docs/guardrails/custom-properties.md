@@ -1,189 +1,78 @@
 # Custom Properties
 
-Custom properties are **metadata labels** attached to repositories that enable targeted governance at scale. They replace informal conventions (topics, naming patterns, README badges) with a structured, queryable, enforceable taxonomy that rulesets and automation can act on.
+Custom properties are **structured metadata** attached to repositories and organizations within a GitHub Enterprise. They serve two purposes in this framework:
 
-If rulesets define *what* controls apply, custom properties define *where* they apply.
+1. **Repository metadata** — classify and describe repositories with key-value pairs (team ownership, risk level, compliance scope, technology stack).
+2. **Targeting criteria for policies and rulesets** — dynamically scope which repositories or organizations a ruleset applies to, without manual per-repo configuration.
 
-## Why custom properties
+Custom properties are defined at the **enterprise level** and inherited by all organizations within the enterprise. Organization owners can also define additional properties at the org level for local needs.
 
-### Targeted rulesets
+## Why custom properties matter
 
-Rulesets can target repositories by custom property values. Instead of applying the same rules to every repo in the org, you can apply stricter controls only to repos tagged `compliance: pci` or `environment: production`.
+Without custom properties, applying different governance rules to different categories of repositories requires one of two approaches:
 
-### Automation input
+- **Manual ruleset targeting** — maintain a static list of repositories per ruleset, which drifts as repos are created or decommissioned.
+- **Topic-based targeting** — use repository topics as a proxy for classification, which is fragile because topics are free-form and not enforced.
 
-Provisioning automation reads custom properties to decide which baselines, workflows, and team structures to apply. A repo tagged `stack: node` gets Node-specific CI workflows. A repo tagged `tier: critical` gets additional monitoring.
+Custom properties solve both problems. They provide a **typed, enforced, enterprise-managed schema** that rulesets can reference directly. When a repository is tagged with a custom property value, the matching rulesets apply automatically.
 
-### Compliance reporting
+!!! tip
+    Think of custom properties as the "labels" that connect your governance policies to the right repositories. Define the properties once at the enterprise level, assign values per repository, and let rulesets do the rest.
 
-Custom properties are queryable via the GitHub API. The observability dashboard in the cockpit org can generate compliance reports grouped by any property: "How many production repos have code scanning enabled?" or "Which PCI repos are missing CODEOWNERS?"
+## How inheritance works
 
-### Consistency
+Custom properties follow a top-down inheritance model:
 
-Topics and naming conventions are freeform — nothing stops a team from typing `nodejs` instead of `node` or `prod` instead of `production`. Custom properties are defined with allowed values, so every repo uses the same vocabulary.
+![Page-1](../medias/custom-properties-inheritance.drawio){ aria-label="Custom properties inheritance model showing three levels: Enterprise defines the schema, Organization inherits it, and Repository assigns values." }
 
-!!! note
-    Custom properties are defined at the **organization level** (or enterprise level with Enterprise Managed Users). Repo admins set property values, but they cannot create new property definitions or change allowed values.
+- **Enterprise owners** define the property schema — the list of allowed properties, their types, whether they are required, and their default values.
+- **Organization owners** inherit the enterprise schema. They can also create org-scoped properties for local classification needs.
+- **Repository actors** can set property values on their repositories if the property allows it (configurable per property). If a required property has no explicit value, the default value applies automatically.
+
+## Property types
+
+Each custom property has a typed value. The available types are:
+
+| Type | Description | Example |
+| --- | --- | --- |
+| **String** | Free-form text | `team-ownership: "platform-team"` |
+| **Single select** | One value from a predefined list | `risk-level: "high"` |
+| **Multi select** | Multiple values from a predefined list | `compliance: ["pci", "sox"]` |
+| **True/False** | Boolean flag | `contains-pii: true` |
+
+!!! warning
+    Use **single select** or **multi select** over free-form strings whenever possible. Typed values prevent typos and inconsistency that would break ruleset targeting.
 
 ## Recommended properties
 
-Define these properties in every organization. The cockpit automation sets them at repo creation and validates them during drift detection.
+The following properties are defined at the enterprise level and used by the framework to scope policies and rulesets across all organizations.
 
-### team
+| Property | Type | Required | Default | Purpose |
+| --- | --- | --- | --- | --- |
+| `risk-level` | Single select (`low`, `medium`, `high`, `critical`) | Yes | `low` | Drives tiered ruleset enforcement (review counts, signing, deployment gates) |
+| `compliance-scope` | Multi select (`pci`, `sox`, `hipaa`, `gdpr`, `none`) | Yes | `none` | Targets compliance-specific rulesets |
+| `team-ownership` | String | Yes | — | Identifies the owning team for routing reviews and notifications |
+| `environment-type` | Single select (`production`, `staging`, `development`, `sandbox`) | No | `development` | Scopes deployment-related rulesets |
+| `contains-pii` | True/False | No | `false` | Triggers data-protection rulesets (encryption, access restrictions) |
+| `technology-stack` | Multi select (`java`, `python`, `node`, `go`, `dotnet`, `other`) | No | — | Targets language-specific CI workflows and security scanners |
 
-Identifies the owning team.
+!!! note
+    These are recommendations. Adapt the property schema to your enterprise's organizational structure and compliance requirements. The important thing is to define properties **once at the enterprise level** so that all organizations share a consistent taxonomy.
 
-| Attribute | Value |
-| --- | --- |
-| **Type** | Single select |
-| **Required** | Yes |
-| **Allowed values** | Team slugs from the org's team structure (e.g., `frontend`, `backend`, `platform`, `data`) |
-| **Used by** | CODEOWNERS validation, team-based dashboards, access audit |
+## Governance workflow
 
-### stack
+The full lifecycle of custom properties in the governance framework:
 
-Identifies the primary technology stack.
-
-| Attribute | Value |
-| --- | --- |
-| **Type** | Single select |
-| **Required** | Yes |
-| **Allowed values** | `node`, `java`, `dotnet`, `python`, `go`, `rust`, `terraform`, `other` |
-| **Used by** | CI workflow selection (build.yml input), dependency scanning configuration |
-
-### environment
-
-Identifies the highest environment this repo deploys to.
-
-| Attribute | Value |
-| --- | --- |
-| **Type** | Single select |
-| **Required** | Yes |
-| **Allowed values** | `production`, `staging`, `development`, `sandbox` |
-| **Used by** | Ruleset targeting (stricter controls for `production`), retention policies, alerting thresholds |
-
-### compliance
-
-Identifies applicable compliance frameworks.
-
-| Attribute | Value |
-| --- | --- |
-| **Type** | Multi select |
-| **Required** | No (defaults to none) |
-| **Allowed values** | `pci`, `sox`, `hipaa`, `gdpr`, `iso27001`, `none` |
-| **Used by** | `sensitive-repo-protection` ruleset targeting, audit report grouping, exception approval routing |
-
-### tier
-
-Identifies the criticality tier for incident response and SLA.
-
-| Attribute | Value |
-| --- | --- |
-| **Type** | Single select |
-| **Required** | Yes |
-| **Allowed values** | `critical`, `standard`, `experimental` |
-| **Used by** | Alerting priority, on-call routing, required approvals count |
-
-### lifecycle
-
-Identifies the current lifecycle stage.
-
-| Attribute | Value |
-| --- | --- |
-| **Type** | Single select |
-| **Required** | Yes |
-| **Allowed values** | `active`, `maintenance`, `deprecated`, `archived` |
-| **Used by** | Drift detection scope (skip `archived`), dependency update scheduling, decommission workflows |
-
-## Property-based ruleset targeting
-
-Custom properties unlock **dynamic ruleset targeting**. Instead of listing repositories by name, rulesets match repositories by property values.
-
-Example — stricter controls for production repos:
-
-A ruleset targeting `environment: production` automatically applies to every repo with that property — including repos created in the future. No manual updates needed.
-
-| Ruleset | Target property | Effect |
-| --- | --- | --- |
-| `sensitive-repo-protection` | `compliance: pci` OR `compliance: sox` | 2 required approvals, signed commits, restricted push |
-| `production-enforcement` | `environment: production` | Required deployments to succeed, no force push to release branches |
-| `critical-tier-protection` | `tier: critical` | 2 required approvals, mandatory security scan, no bypass |
-| `experimental-relaxed` | `tier: experimental` | 1 required approval, evaluate mode for security scan |
-
-!!! tip
-    Property-based targeting eliminates the "new repo gap." When a team creates a repo and tags it `environment: production`, all production rulesets apply immediately. No ticket to the platform team required.
-
-## Setting properties
-
-### At repo creation
-
-The cockpit provisioning automation sets properties as part of the repo creation workflow. The service catalog form collects property values from the requesting team.
-
-```yaml
-# Example: provisioning automation sets properties via API
-- name: Set custom properties
-  uses: actions/github-script@v7
-  with:
-    script: |
-      await github.rest.repos.createOrUpdateCustomPropertiesValues({
-        owner: 'product-org-a',
-        repo: 'new-service',
-        properties: [
-          { property_name: 'team', value: 'backend' },
-          { property_name: 'stack', value: 'java' },
-          { property_name: 'environment', value: 'production' },
-          { property_name: 'compliance', value: ['pci'] },
-          { property_name: 'tier', value: 'critical' },
-          { property_name: 'lifecycle', value: 'active' }
-        ]
-      });
-```
-
-### Updating properties
-
-Org owners and repo admins can update property values through the GitHub UI or API. Changes take effect immediately — rulesets re-evaluate targeting on every push.
+1. **Define** the property schema at the enterprise level (platform team).
+2. **Assign** property values at repository creation via automation or manually.
+3. **Reference** properties in ruleset targeting criteria at the org or enterprise level.
+4. **Enforce** — rulesets apply automatically to matching repositories.
+5. **Audit** — use property values in reporting and compliance dashboards to verify coverage.
+6. **Evolve** — add new properties or values as governance needs change. Existing repositories inherit schema changes and can be bulk-updated.
 
 !!! warning
-    Changing a property value changes which rulesets apply. If a team downgrades `environment` from `production` to `development`, they lose production rulesets. The drift detection workflow should flag unexpected property changes.
-
-## Drift detection
-
-The cockpit observability workflow validates custom properties on a schedule:
-
-- :fontawesome-solid-square-check: Every repo has all required properties set
-- :fontawesome-solid-square-check: Property values match allowed values (no stale entries after a schema change)
-- :fontawesome-solid-square-check: `team` property matches at least one active team in the org
-- :fontawesome-solid-square-check: `lifecycle: archived` repos are actually archived in GitHub
-- :fontawesome-solid-square-check: No production repos are missing `compliance` tags when the org requires them
-
-Drift is reported to the posture dashboard and triggers alerts for the platform team.
-
-## Anti-patterns
-
-### Too many properties
-
-Defining 20 properties makes the service catalog form painful, slows down provisioning, and guarantees that half the values will be wrong or outdated.
-
-**Fix:** start with the six recommended properties above. Add more only when there is a concrete automation or ruleset that needs them.
-
-### Freeform values
-
-Using a `string` type instead of `single_select` allows inconsistent values (`Node.js`, `node`, `nodejs`, `Node`). Every downstream automation must handle the variants.
-
-**Fix:** always use `single_select` or `multi_select` with predefined allowed values. Update the allowed values list when new options are needed.
-
-### Properties without consumers
-
-A property that nothing reads is dead metadata. It decays immediately because no one has an incentive to keep it accurate.
-
-**Fix:** every property should have at least one consumer: a ruleset, a dashboard, a workflow, or an audit report. If nothing uses it, delete it.
-
-### Manual-only property management
-
-Relying on teams to manually set properties in the UI guarantees inconsistency. Some teams forget. Others mistype. Nobody updates `lifecycle` when a repo moves to maintenance.
-
-**Fix:** set properties at provisioning time via automation. Validate them during drift detection. Automate lifecycle transitions (e.g., auto-set `lifecycle: archived` when a repo is archived).
+    Changing a property value on a repository can change which rulesets apply to it. Treat property reassignment as a governance action — review the impact before changing `risk-level` or `compliance-scope` on production repositories.
 
 ---
 
-Next: [Rulesets](rulesets.md)
+Next: [Reusable workflows](reusable-workflows.md)
