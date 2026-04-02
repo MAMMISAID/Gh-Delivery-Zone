@@ -33,13 +33,12 @@ For each changed file, check and correct ALL of the following:
 
 **Formatting Rules:**
 - Use admonitions for callouts: `!!! tip`, `!!! warning`, `!!! note` — never use bold text or custom formatting for callouts
-- Use Mermaid diagrams (via `pymdownx.superfences`) for architecture and process flows — ensure proper fence syntax:
+- Use **Draw.io diagrams** for architecture and process flows — save `.drawio` files in `docs/medias/` and reference them with:
   ```
-  ```mermaid
-  graph LR
-      A --> B
+  ![Page-1](../medias/<name>.drawio){ aria-label="Description of the diagram." }
   ```
-  ```
+- **Do not use Mermaid diagrams.** All diagrams must be Draw.io files rendered by the mkdocs-drawio plugin.
+- Always include a `<details><summary>Text description...</summary>` block after diagrams for accessibility
 - Use checklists (`- [ ]`) for actionable items, not numbered lists or bullet points for tasks
 - **No emojis** — remove any emojis found
 - **No raw HTML** — convert any raw HTML to Markdown equivalents
@@ -80,7 +79,7 @@ Always perform this step, even if no formatting issues were found:
 4. **If the strict build fails**, analyze the error output, fix the issues, and re-run. Common errors include:
    - Broken internal links (404s)
    - Missing nav entries in `mkdocs.yml`
-   - Invalid Mermaid syntax
+   - Invalid Draw.io references (missing `.drawio` files)
    - Missing files referenced in nav
 
 5. **Once the strict build passes**, start the dev server:
@@ -121,16 +120,16 @@ Before finishing, verify:
 - [ ] All changed files follow the H1 → intro → H2 → H3 max structure
 - [ ] No emojis, no raw HTML, no H4+ headings
 - [ ] Admonitions are properly formatted
-- [ ] Mermaid diagrams use correct fence syntax
+- [ ] All diagrams use Draw.io (no Mermaid code blocks)
 - [ ] `mkdocs build --strict` passes cleanly
 - [ ] Dev server is running and responding on port 8000
 
-**Update your agent memory** as you discover documentation patterns, common formatting mistakes, broken links, nav structure issues, and Mermaid diagram conventions in this project. This builds up institutional knowledge across conversations. Write concise notes about what you found and where.
+**Update your agent memory** as you discover documentation patterns, common formatting mistakes, broken links, nav structure issues, and Draw.io diagram conventions in this project. This builds up institutional knowledge across conversations. Write concise notes about what you found and where.
 
 Examples of what to record:
 - Recurring formatting violations in specific files or sections
 - Common broken link patterns (e.g., files moved but links not updated)
-- Mermaid diagram patterns used in this project
+- Draw.io diagram patterns and naming conventions in this project
 - Nav structure decisions and how new pages should be ordered
 - Files that frequently cause strict build failures and why
 

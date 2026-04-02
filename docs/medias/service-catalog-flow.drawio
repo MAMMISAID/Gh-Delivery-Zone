@@ -1,0 +1,47 @@
+<mxfile host="app.diagrams.net" modified="2026-04-02T00:00:00.000Z" type="device">
+  <diagram name="Page-1" id="page1">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- Requester -->
+        <mxCell id="REQ" value="Requester&lt;br&gt;(Org Owner / Team Lead)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="40" y="160" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <!-- Service Catalog -->
+        <mxCell id="CAT" value="Service Catalog&lt;br&gt;(Issue Template)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="310" y="160" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <!-- Platform Team -->
+        <mxCell id="PT" value="Platform Team&lt;br&gt;(Triage &amp;amp; Execute)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="580" y="160" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <!-- Provisioning Automation -->
+        <mxCell id="AUTO" value="Provisioning&lt;br&gt;Automation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f6f8fa;strokeColor=#8c959f;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="850" y="160" width="200" height="60" as="geometry"/>
+        </mxCell>
+        <!-- Edge: REQ -> CAT -->
+        <mxCell id="e1" value="opens issue" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" edge="1" source="REQ" target="CAT" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Edge: CAT -> PT -->
+        <mxCell id="e2" value="triaged by" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" edge="1" source="CAT" target="PT" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Edge: PT -> AUTO -->
+        <mxCell id="e3" value="triggers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" edge="1" source="PT" target="AUTO" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <!-- Edge: AUTO -> REQ (delivers result, curves back) -->
+        <mxCell id="e4" value="delivers result" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" edge="1" source="AUTO" target="REQ" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="950" y="260"/>
+              <mxPoint x="140" y="260"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

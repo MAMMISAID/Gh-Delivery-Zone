@@ -1,0 +1,70 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="page1">
+        <mxGraphModel dx="1675" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="A" value="&lt;b&gt;Request Access&lt;/b&gt;&lt;br/&gt;Team lead submits onboarding request&lt;br/&gt;via service catalog" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="485" y="30" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="B" value="&lt;b&gt;Create Team&lt;/b&gt;&lt;br/&gt;Platform creates GitHub team&lt;br/&gt;with members and permissions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="485" y="160" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="C" value="&lt;b&gt;Assign Organization&lt;/b&gt;&lt;br/&gt;Team is assigned to target org&lt;br/&gt;with appropriate role" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="485" y="290" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="D" value="&lt;b&gt;Apply Baseline&lt;/b&gt;&lt;br/&gt;Org-level rulesets, security defaults,&lt;br/&gt;and required workflows are active" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="485" y="420" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="E" value="&lt;b&gt;Create First Repo&lt;/b&gt;&lt;br/&gt;Team creates repo from&lt;br/&gt;platform template" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="485" y="550" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="F" value="&lt;b&gt;Verify Compliance&lt;/b&gt;&lt;br/&gt;Platform validates baseline,&lt;br/&gt;rulesets, and CI pipeline" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="485" y="680" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="G" value="&lt;b&gt;Compliant?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff4e5;strokeColor=#d4a72c;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="515" y="810" width="140" height="90" as="geometry"/>
+                </mxCell>
+                <mxCell id="H" value="&lt;b&gt;Handoff&lt;/b&gt;&lt;br/&gt;Team is autonomous&lt;br/&gt;and self-service" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="485" y="960" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="I" value="&lt;b&gt;Remediate&lt;/b&gt;&lt;br/&gt;Fix configuration gaps&lt;br/&gt;with platform support" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f6f8fa;strokeColor=#8c959f;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="750" y="810" width="200" height="70" as="geometry"/>
+                </mxCell>
+                <mxCell id="eAB" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" parent="1" source="A" target="B" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eBC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" parent="1" source="B" target="C" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eCD" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" parent="1" source="C" target="D" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eDE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" parent="1" source="D" target="E" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eEF" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" parent="1" source="E" target="F" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eFG" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" parent="1" source="F" target="G" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eGH" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" parent="1" source="G" target="H" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eGI" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" parent="1" source="G" target="I" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="eIF" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="I" target="F" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="850" y="715"/>
+                        </Array>
+                        <mxPoint x="810" y="760" as="sourcePoint"/>
+                        <mxPoint x="740" y="720" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

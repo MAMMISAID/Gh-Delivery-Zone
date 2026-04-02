@@ -1,6 +1,6 @@
 # Enterprise Policies
 
-Enterprise policies are the **top-level governance controls** in GitHub Enterprise Cloud. They provide a single point of management for all organizations owned by the enterprise account, enforcing business rules and regulatory compliance before org-level rulesets or reusable workflows even come into play.
+Enterprise policies are the **top-level governance controls** in GitHub Enterprise Cloud. They provide a single point of management for all organizations owned by the enterprise account, enforcing business rules and regulatory compliance before org-level rulesets or required workflows even come into play.
 
 If rulesets enforce *how* code flows through repositories, enterprise policies enforce *what is allowed to exist* at the platform level.
 
@@ -71,7 +71,7 @@ Controls which security features are available and who can manage them.
 | **Advanced Security availability** | Allow for all orgs, selected orgs, or disallow | Allow for **all organizations**. Security features should be universally available. |
 | **Dependabot alerts** | Allow repo admins to manage, or restrict | **Allow** repo admins to enable/disable. Low risk, high developer ownership. |
 | **Secret Protection management** | Allow repo admins, or restrict | **Allow** repo admins. Push protection should be enabled by default at org level anyway. |
-| **Code Security management** | Allow repo admins, or restrict | **Allow** repo admins. Code scanning should be enabled by default via reusable workflows. |
+| **Code Security management** | Allow repo admins, or restrict | **Allow** repo admins. Code scanning should be enabled by default via required workflows. |
 | **AI detection (secret scanning)** | Allow repo admins, or restrict | **Allow**. AI detection improves secret scanning accuracy. |
 | **Copilot Autofix** | Allow repo admins, or restrict | **Allow**. Autofix accelerates remediation. |
 
@@ -130,7 +130,7 @@ Enterprise policies sit at the top of the guardrail stack:
 | --- | --- | --- |
 | **Enterprise policies** | Platform-wide settings | All orgs, all repos |
 | **Org-level rulesets** | Branch and tag protection | All repos in an org |
-| **Reusable workflows** | CI/CD standardization | All repos that call the workflow |
+| **Required workflows** | CI/CD enforcement | All repos that call the workflow |
 | **Repository baseline** | Metadata, CODEOWNERS, security defaults | Individual repos |
 
 Policies set the boundaries. Rulesets enforce the flow. Workflows standardize the execution. Baselines fill in the details.

@@ -20,13 +20,13 @@ Responsibilities:
 
 ### Platform Team
 
-The Platform Team owns the Cockpit Organization and everything inside it: provisioning automation, policy-as-code, reusable workflows, templates, observability dashboards, and the exception registry.
+The Platform Team owns the Cockpit Organization and everything inside it: provisioning automation, policy-as-code, required workflows, templates, observability dashboards, and the exception registry.
 They build the paved roads that product teams consume.
 
 Responsibilities:
 
 - :fontawesome-solid-square-check: Build and maintain provisioning automation (org/repo creation, baseline application)
-- :fontawesome-solid-square-check: Author and version reusable workflows and composite actions
+- :fontawesome-solid-square-check: Author and version required workflows and composite actions
 - :fontawesome-solid-square-check: Define and enforce rulesets across organizations
 - :fontawesome-solid-square-check: Operate observability dashboards (drift detection, compliance posture)
 
@@ -74,7 +74,7 @@ They should rarely need to think about governance -- that is the point.
 Responsibilities:
 
 - :fontawesome-solid-square-check: Follow repository conventions and rulesets
-- :fontawesome-solid-square-check: Use reusable workflows for CI/CD, security scans, and other automated processes
+- :fontawesome-solid-square-check: Use required workflows for CI/CD, security scans, and other automated processes
 - :fontawesome-solid-square-check: Report guardrail issues or friction through the appropriate channel
 - :fontawesome-solid-square-check: Participate in code review and status check enforcement
 
@@ -88,7 +88,7 @@ Use this matrix to resolve "who does what" questions. Each activity has exactly 
 | Organization creation | A | **R** | C | I | I | I |
 | Repository provisioning | I | **R / A** | I | C | R | I |
 | Ruleset management | I | **R / A** | C | I | I | I |
-| Reusable workflow publishing | I | **R / A** | C | I | I | I |
+| Required workflow publishing | I | **R / A** | C | I | I | I |
 | Exception approval | I | C | **A** | R | R | I |
 | Team onboarding | I | C | I | **A** | R | I |
 | Audit and compliance review | C | C | **R / A** | C | I | I |
@@ -106,7 +106,7 @@ Role boundaries overlap in practice. When they do, use these rules:
 Start with the Org Owner. If the exception affects security posture or crosses org boundaries, escalate to Security and Compliance. The Platform Team is consulted but never the sole approver of security exceptions.
 
 **2. "Who fixes a broken guardrail?"**
-The Platform Team owns the guardrail implementation. If a ruleset or reusable workflow is broken, the Platform Team fixes it. Product teams report the issue; they do not patch guardrails locally.
+The Platform Team owns the guardrail implementation. If a ruleset or required workflow is broken, the Platform Team fixes it. Product teams report the issue; they do not patch guardrails locally.
 
 **3. "Who creates a new organization?"**
 The Platform Team provisions organizations. The request comes from leadership with a justified boundary (see [Organization strategy](../architecture/org-strategy.md)). The Enterprise Admin grants the rights; the Platform Team executes.

@@ -9,7 +9,7 @@ If your exception process is painful enough to avoid, it is working. If it is pa
 
 An exception is a **time-bound, approved deviation from a mandatory guardrail**.
 
-Guardrails in this framework (rulesets, reusable workflows, baseline controls) are enforced by default.
+Guardrails in this framework (rulesets, required workflows, baseline controls) are enforced by default.
 When a team cannot comply with a specific guardrail -- due to technical constraints, migration timelines, or legacy dependencies -- they request an exception instead of silently bypassing the control.
 
 An exception is not:
@@ -75,7 +75,7 @@ Not all exceptions carry the same risk. The approval authority depends on what i
 | Exception type | Approver | Consulted |
 | --- | --- | --- |
 | Ruleset bypass (branch protection, required checks) | Org Owner | Platform Team |
-| Reusable workflow opt-out | Platform Team | Security and Compliance |
+| Required workflow opt-out | Platform Team | Security and Compliance |
 | Secret scanning or code scanning exemption | Security and Compliance | Platform Team, Org Owner |
 | Dependency review bypass | Security and Compliance | Platform Team |
 | Cross-org access exception | Enterprise Admin | Platform Team, Security and Compliance |

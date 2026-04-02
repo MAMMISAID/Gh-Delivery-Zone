@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net" modified="2026-04-02T00:00:00.000Z" type="device">
+  <diagram name="Page-1" id="page1">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Platform Org (cockpit) container -->
+        <mxCell id="Platform" value="Platform Org (cockpit)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=14;fontStyle=1;verticalAlign=top;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="250" y="30" width="670" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="WF_BUILD" value="build.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="Platform">
+          <mxGeometry x="10" y="45" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="WF_TEST" value="test.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="Platform">
+          <mxGeometry x="140" y="45" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="WF_SCAN" value="security-scan.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="Platform">
+          <mxGeometry x="270" y="45" width="130" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="WF_RELEASE" value="release.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="Platform">
+          <mxGeometry x="410" y="45" width="120" height="40" as="geometry"/>
+        </mxCell>
+        <mxCell id="WF_DEPS" value="dependency-update.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="Platform">
+          <mxGeometry x="540" y="45" width="120" height="40" as="geometry"/>
+        </mxCell>
+
+        <!-- Product Org A container -->
+        <mxCell id="ProductA" value="Product Org A" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=14;fontStyle=1;verticalAlign=top;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="120" y="250" width="440" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="REPO_A1" value="repo: frontend-app&lt;br&gt;calls build.yml + test.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="ProductA">
+          <mxGeometry x="20" y="45" width="190" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="REPO_A2" value="repo: backend-api&lt;br&gt;calls build.yml + test.yml + security-scan.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="ProductA">
+          <mxGeometry x="230" y="45" width="190" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- Product Org B container -->
+        <mxCell id="ProductB" value="Product Org B" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=14;fontStyle=1;verticalAlign=top;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="600" y="250" width="440" height="120" as="geometry"/>
+        </mxCell>
+        <mxCell id="REPO_B1" value="repo: data-pipeline&lt;br&gt;calls build.yml + security-scan.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="ProductB">
+          <mxGeometry x="20" y="45" width="190" height="55" as="geometry"/>
+        </mxCell>
+        <mxCell id="REPO_B2" value="repo: mobile-app&lt;br&gt;calls build.yml + test.yml + release.yml" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="ProductB">
+          <mxGeometry x="230" y="45" width="190" height="55" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows from workflows to repos -->
+        <!-- build.yml -> all 4 repos -->
+        <mxCell id="e1" style="rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="WF_BUILD" target="REPO_A1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" style="rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="WF_BUILD" target="REPO_A2" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" style="rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="WF_BUILD" target="REPO_B1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e4" style="rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="WF_BUILD" target="REPO_B2" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- test.yml -> REPO_A1, REPO_A2, REPO_B2 -->
+        <mxCell id="e5" style="rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="WF_TEST" target="REPO_A1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e6" style="rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="WF_TEST" target="REPO_A2" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e7" style="rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="WF_TEST" target="REPO_B2" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- security-scan.yml -> REPO_A2, REPO_B1 -->
+        <mxCell id="e8" style="rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="WF_SCAN" target="REPO_A2" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e9" style="rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="WF_SCAN" target="REPO_B1" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+
+        <!-- release.yml -> REPO_B2 -->
+        <mxCell id="e10" style="rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="WF_RELEASE" target="REPO_B2" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

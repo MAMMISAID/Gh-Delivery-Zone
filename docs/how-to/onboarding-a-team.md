@@ -1,6 +1,6 @@
 # Onboarding a Team
 
-This is a step-by-step guide for bringing a new team into the GitHub Enterprise Delivery Zone. By the end of this process, the team will have an organization assignment, a GitHub team with correct permissions, a first repository created from a platform template, and verified compliance with all baseline controls.
+This is a step-by-step guide for bringing a new team into the GitHub Enterprise Delivery Zone. By the end of this process, the team will have an organization assignment, a GitHub team with correct permissions, a first repository created from a platform template, and verified compliance with all baseline controls. If you are familiar with Azure Landing Zones, this process is the equivalent of **subscription vending** — the platform provisions a governed workspace so the team can start building immediately.
 
 Onboarding is a **platform responsibility** with team cooperation. The platform team provisions infrastructure and guardrails; the product team provides information and validates the result.
 
@@ -22,29 +22,22 @@ Complete this checklist before initiating the onboarding workflow:
 
 The following diagram shows the end-to-end onboarding flow from initial request through to team autonomy.
 
-```mermaid
-%%{init: {'theme': 'base', 'flowchart': {'curve': 'basis', 'nodeSpacing': 40, 'rankSpacing': 55}, 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif', 'lineColor': '#6e7781', 'primaryTextColor': '#1f2328'}}}%%
-flowchart TD
-    A["Request Access<br/>Team lead submits onboarding request<br/>via service catalog"] --> B["Create Team<br/>Platform creates GitHub team<br/>with members and permissions"]
-    B --> C["Assign Organization<br/>Team is assigned to target org<br/>with appropriate role"]
-    C --> D["Apply Baseline<br/>Org-level rulesets, security defaults,<br/>and reusable workflows are active"]
-    D --> E["Create First Repo<br/>Team creates repo from<br/>platform template"]
-    E --> F["Verify Compliance<br/>Platform validates baseline,<br/>rulesets, and CI pipeline"]
-    F --> G{"Compliant?"}
-    G -->|Yes| H["Handoff<br/>Team is autonomous<br/>and self-service"]
-    G -->|No| I["Remediate<br/>Fix configuration gaps<br/>with platform support"]
-    I --> F
+![Page-1](../medias/onboarding-flow.drawio){ aria-label="Onboarding workflow showing steps from access request through compliance verification to team handoff." }
 
-    classDef step fill:#e7f0ff,stroke:#218bff,stroke-width:1.4px,color:#1f2328;
-    classDef decision fill:#fff4e5,stroke:#d4a72c,stroke-width:1.4px,color:#1f2328;
-    classDef done fill:#eaf9f1,stroke:#2da44e,stroke-width:1.4px,color:#1f2328;
-    classDef fix fill:#f6f8fa,stroke:#8c959f,stroke-width:1.2px,color:#1f2328;
+<details>
+<summary>Text description of the onboarding workflow</summary>
 
-    class A,B,C,D,E,F step;
-    class G decision;
-    class H done;
-    class I fix;
-```
+1. **Request Access** -- Team lead submits onboarding request via service catalog.
+2. **Create Team** -- Platform creates GitHub team with members and permissions.
+3. **Assign Organization** -- Team is assigned to target org with appropriate role.
+4. **Apply Baseline** -- Org-level rulesets, security defaults, and required workflows are active.
+5. **Create First Repo** -- Team creates repo from platform template.
+6. **Verify Compliance** -- Platform validates baseline, rulesets, and CI pipeline.
+7. **Compliant?** -- Decision point: if Yes, proceed to Handoff; if No, go to Remediate.
+8. **Handoff** -- Team is autonomous and self-service.
+9. **Remediate** -- Fix configuration gaps with platform support, then loop back to Verify Compliance.
+
+</details>
 
 ## Step 1 — Request team creation
 
@@ -85,6 +78,9 @@ Once the request is approved, the platform team provisions the following:
 
 - The team lead receives confirmation with: team URL, org URL, list of applied baselines, and links to documentation
 
+!!! note "Azure parallel"
+    The baseline controls that come with team setup work like **Azure Policy inheritance**: policies assigned at the management group level flow down automatically to every new subscription (organization) without the team having to configure anything.
+
 !!! warning
     Do not manually add members to the organization outside of the team provisioning process. Direct org invites bypass team-level permission controls and create unauditable access patterns.
 
@@ -99,7 +95,7 @@ With the team in place, create your first repository to validate that everything
     - [ ] Secret scanning is enabled
     - [ ] Dependabot is enabled
     - [ ] Code scanning (CodeQL) is configured
-3. Add a `.github/workflows/ci.yml` that references the platform reusable workflows (see [Consume the framework — Step 2](consume-framework.md#step-2-consume-reusable-workflows))
+3. Add a `.github/workflows/ci.yml` that references the platform required workflows (see [Consume the framework — Step 2](consume-framework.md#step-2-consume-required-workflows))
 4. Open a pull request to validate that:
     - [ ] Required checks run and pass
     - [ ] Review requirements are enforced
@@ -116,9 +112,12 @@ The platform team runs a compliance check on the newly created repository and te
 
 - Organization-level rulesets are inherited and active
 - Repository-level security features are enabled (not overridden)
-- CI pipeline references platform reusable workflows (not local copies)
+- CI pipeline references platform required workflows (not local copies)
 - Team permissions match the approved request
 - No direct collaborator access exists outside of teams
+
+!!! note "Azure parallel"
+    This verification step is the equivalent of marking an Azure subscription **"production ready"** — confirming that policies are enforced, networking is connected, and monitoring is active before workloads go live.
 
 Once verification passes, the team is formally handed off:
 
@@ -128,17 +127,17 @@ Once verification passes, the team is formally handed off:
 
 ## Ongoing responsibilities
 
-After onboarding, the team is **autonomous within the guardrails**. Here is what the team owns going forward:
+After onboarding, the team is **autonomous within the guardrails**. This is the core principle of Azure Landing Zones applied to GitHub: teams have full freedom to build and ship, as long as they stay within the governance boundaries the platform has set. Here is what the team owns going forward:
 
 **Repository maintenance:**
 
 - Creating new repositories from platform templates
-- Keeping CI workflows up to date with platform reusable workflow versions
+- Keeping CI workflows up to date with platform required workflow versions
 - Managing repository-level settings that are not controlled by rulesets (topics, description, visibility changes)
 
 **Workflow updates:**
 
-- Updating reusable workflow version pins when the platform team releases new major versions
+- Updating required workflow version pins when the platform team releases new major versions
 - Adding project-specific CI jobs alongside platform workflows
 - Testing workflow changes in pull requests before merging
 

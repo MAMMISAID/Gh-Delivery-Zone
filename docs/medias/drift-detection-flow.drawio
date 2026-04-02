@@ -1,0 +1,72 @@
+<mxfile host="app.diagrams.net" modified="2026-04-02T00:00:00.000Z" type="device">
+  <diagram name="Page-1" id="page1">
+    <mxGraphModel dx="1400" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- A: Scheduled API check -->
+        <mxCell id="A" value="&lt;b&gt;Scheduled API check&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="30" y="310" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <!-- B: Setting matches expected baseline? -->
+        <mxCell id="B" value="&lt;b&gt;Setting matches&lt;br/&gt;expected baseline?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff4e5;strokeColor=#d4a72c;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="300" y="300" width="140" height="90" as="geometry"/>
+        </mxCell>
+        <!-- C: Log compliant -->
+        <mxCell id="C" value="&lt;b&gt;Log: compliant&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="510" y="200" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <!-- D: Drift event created -->
+        <mxCell id="D" value="&lt;b&gt;Drift event created&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f6f8fa;strokeColor=#8c959f;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="510" y="420" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <!-- E: Alert to team lead -->
+        <mxCell id="E" value="&lt;b&gt;Alert to team lead&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="770" y="420" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <!-- F: Remediation SLA met? -->
+        <mxCell id="F" value="&lt;b&gt;Remediation&lt;br/&gt;SLA met?&lt;/b&gt;" style="rhombus;whiteSpace=wrap;html=1;fillColor=#fff4e5;strokeColor=#d4a72c;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="410" width="140" height="90" as="geometry"/>
+        </mxCell>
+        <!-- G: Drift resolved -->
+        <mxCell id="G" value="&lt;b&gt;Drift resolved&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="410" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <!-- H: Escalation to Platform Team lead -->
+        <mxCell id="H" value="&lt;b&gt;Escalation to&lt;br/&gt;Platform Team lead&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f6f8fa;strokeColor=#8c959f;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="560" width="200" height="70" as="geometry"/>
+        </mxCell>
+        <!-- Edges -->
+        <mxCell id="eAB" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" edge="1" source="A" target="B" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eBC" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" edge="1" source="B" target="C" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eBD" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" edge="1" source="B" target="D" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eDE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" edge="1" source="D" target="E" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eEF" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" edge="1" source="E" target="F" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eFG" value="Yes" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" edge="1" source="F" target="G" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eFH" value="No" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" edge="1" source="F" target="H" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eHG" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;strokeColor=#6e7781;" edge="1" source="H" target="G" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1300" y="595"/>
+              <mxPoint x="1300" y="445"/>
+            </Array>
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

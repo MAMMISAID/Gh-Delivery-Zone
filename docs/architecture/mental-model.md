@@ -3,7 +3,7 @@
 A delivery zone is a **platform operating model** with guardrails and paved roads.
 In Azure, the Delivery Zone concept exists because *scale breaks informal governance*.
 
-GitHub Enterprise has the problem: once you cross a certain number of repositories and teams, you get:
+GitHub Enterprise has the same problem: once you cross a certain number of repositories and teams, you get:
 
 - Inconsistent protection rules
 - Insecure workflows and token sprawl
@@ -11,7 +11,7 @@ GitHub Enterprise has the problem: once you cross a certain number of repositori
 - Unclear ownership and exception chaos
 - “We can’t audit it” moments
 
-If  you are in monolithic org, you will hit issues about activating github features for all companies teams, instead of activating them for specific orgs. If you are in multi-org, you will hit issues about inconsistent guardrails and security posture across orgs, and lack of visibility and control for platform teams.
+If you run a monolithic organization, you will hit issues activating GitHub features for all teams at once instead of selectively per organization. If you run multiple organizations, you will face inconsistent guardrails, uneven security posture across orgs, and limited visibility for platform teams.
 
 The GitHub Enterprise Delivery Zone is how you prevent that.
 
@@ -27,7 +27,7 @@ The architecture has four layers.
     <li>Layer 1: Enterprise Platform Boundary (GitHub Enterprise)</li>
     <li>Layer 2: Cockpit Organization (Control Plane with Service Catalog, Provisioning Automation, Policy as Code, Observability, Exception Registry)</li>
     <li>Layer 3: Team/Product Organizations (Example orgs: product-a, platform-shared, sandbox; each with org baseline, teams, repositories)</li>
-    <li>Layer 4: Repository Guardrails (Rulesets, Reusable Workflows, Security Defaults applied to every repository)</li>
+    <li>Layer 4: Repository Guardrails (Rulesets, Required Workflows, Security Defaults applied to every repository)</li>
 </ul>
 
 </details>
@@ -75,13 +75,13 @@ We reuse Azure Delivery Zone thinking because it gives a clean hierarchy of boun
 
 ### 3) "Configuration As Code" without reuse
 
-**Symptom:** Most of companies apply iac to cloud deployment but not for github assets management, leading to clicking and taking screenshots, copy/paste YAML, inconsistent patterns, and maintenance nightmares.
+**Symptom:** Most companies apply IaC to cloud deployments but not to GitHub asset management, leading to manual clicking, copy/paste YAML, inconsistent patterns, and maintenance nightmares.
 
 **Fix:** Framework provides reusable modules and actions to implement guardrails as code:
 
-- OpenTofu modules to configure Entreprise
+- OpenTofu modules to configure Enterprise
 - OpenTofu modules to configure Organizations (baseline, teams, policies)
-- Drift detection and compliance reporting to identify repos that diverge from baseline, to monitor Orgnization and trigger remediation, and to report compliance over time.
+- Drift detection and compliance reporting to identify repos that diverge from baseline, monitor Organization health, trigger remediation, and report compliance over time.
 
 ---
 

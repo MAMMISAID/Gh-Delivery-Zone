@@ -19,7 +19,7 @@
                 <mxCell id="6" value="&lt;b&gt;Provisioning Automation&lt;/b&gt;&lt;br&gt;OpenTofu/Terraform + GitHub APIs" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontColor=#1f2328;verticalAlign=middle;align=center;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;" parent="1" vertex="1">
                     <mxGeometry x="347" y="175" width="245" height="55" as="geometry"/>
                 </mxCell>
-                <mxCell id="7" value="&lt;b&gt;Policy as Code&lt;/b&gt;&lt;br&gt;Rulesets + reusable workflows" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontColor=#1f2328;verticalAlign=middle;align=center;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;" parent="1" vertex="1">
+                <mxCell id="7" value="&lt;b&gt;Policy as Code&lt;/b&gt;&lt;br&gt;Rulesets + required workflows" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontColor=#1f2328;verticalAlign=middle;align=center;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;" parent="1" vertex="1">
                     <mxGeometry x="617" y="175" width="245" height="55" as="geometry"/>
                 </mxCell>
                 <mxCell id="8" value="&lt;b&gt;Observability&lt;/b&gt;&lt;br&gt;Drift and posture dashboards" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontColor=#1f2328;verticalAlign=middle;align=center;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;" parent="1" vertex="1">
@@ -76,7 +76,7 @@
                 <mxCell id="25" value="&lt;b&gt;Rulesets&lt;/b&gt;&lt;br&gt;Branch protection + required checks" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontColor=#1f2328;verticalAlign=middle;align=center;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;" parent="1" vertex="1">
                     <mxGeometry x="420" y="630" width="290" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" value="&lt;b&gt;Reusable Workflows&lt;/b&gt;&lt;br&gt;Build, test, scan, release" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontColor=#1f2328;verticalAlign=middle;align=center;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;" parent="1" vertex="1">
+                <mxCell id="26" value="&lt;b&gt;Required Workflows&lt;/b&gt;&lt;br&gt;Build, test, scan, release" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontColor=#1f2328;verticalAlign=middle;align=center;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;" parent="1" vertex="1">
                     <mxGeometry x="740" y="680" width="360" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="27" value="&lt;b&gt;Security Defaults&lt;/b&gt;&lt;br&gt;Secret scanning, code scanning, dependencies" style="rounded=1;whiteSpace=wrap;html=1;fontSize=11;fontColor=#1f2328;verticalAlign=middle;align=center;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;" parent="1" vertex="1">

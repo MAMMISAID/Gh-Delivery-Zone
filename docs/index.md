@@ -1,25 +1,51 @@
 # GitHub Enterprise Delivery Zone
 
-Welcome to the GitHub Enterprise Delivery Zone documentation! This site is designed to provide you with the knowledge and resources you need to successfully implement and operate GitHub Enterprise at scale. Whether you're a developer, administrator, or decision-maker, you'll find valuable insights and guidance to help you navigate the complexities of running GitHub Enterprise in a large organization.
+An opinionated framework for operating **GitHub Enterprise Cloud (EMU)** at scale -- hundreds of organizations, thousands of repositories, governed by default. Inspired by [Azure Landing Zones](https://learn.microsoft.com/azure/cloud-adoption-framework/ready/landing-zone/), the Delivery Zone Framework applies the same boundary-driven thinking to GitHub: clear layers, enforced guardrails, and paved roads for every team.
 
-This site is organized into several sections, each covering a different aspect of GitHub Enterprise Delivery. From platform and organization boundary design to security and governance guardrails, we aim to provide comprehensive guidance to help you succeed in your GitHub Enterprise journey.
+## Who This Is For
 
-## Definitions and Concepts
+| Audience | Start here |
+| --- | --- |
+| **Platform engineers / DevOps** | [Architecture](architecture/mental-model.md), [Guardrails](guardrails/policies.md) |
+| **Security and compliance** | [Policies](guardrails/policies.md), [Rulesets](guardrails/rulesets.md), [Exception process](operating-model/exception-process.md) |
+| **Enterprise architects** | [Mental model](architecture/mental-model.md), [Organization strategy](architecture/org-strategy.md) |
+| **Product / delivery teams** | [Onboarding a team](how-to/onboarding-a-team.md), [Consume framework](how-to/consume-framework.md) |
+| **Decision-makers** | [Getting started](getting-started.md) |
 
-Before diving into the details, let's clarify some key terms and concepts that will be used throughout this documentation:
+## Framework at a Glance
 
-- **GitHub Enterprise**: A self-hosted version of GitHub that provides additional features and controls for organizations, allowing them to manage their code and collaboration in a secure and scalable way.
-- **Delivery Zone**: A set of practices, patterns, and guidance for applied to GitHub Organzistion based on Delivery Zone Framework, with a focus on governance and security.
-- **Delivery Zone Framework**: A set of practices, patterns, and guidance for delivering software using GitHub Enterprise at scale, with a focus on governance and security.
-- **Platform Design**: The architectural and organizational decisions that shape how GitHub Enterprise is structured and used within a business organization.
-- **Governance Guardrails**: Policies, controls, and best practices that ensure secure and compliant use of GitHub Enterprise while enabling teams to work effectively.
+The Delivery Zone model has four layers, each mapping to a GitHub boundary:
 
-## What This Documentation Covers
+| Layer | GitHub concept | Responsibility |
+| --- | --- | --- |
+| **Enterprise** | GitHub Enterprise | Identity, billing, global policy ceiling |
+| **Cockpit Organization** | Central control-plane org | Provisioning automation, policy-as-code, observability |
+| **Delivery Zone (Organization)** | Team / product org | Scoped guardrails, team autonomy within boundaries |
+| **Repository** | Individual repo | Rulesets, required workflows, security defaults |
 
-- Platform and organization boundary design
-- Security and governance guardrails
-- Reusable workflow and policy patterns
-- Onboarding and operating model guidance.
-- Best practices for scaling GitHub Enterprise in large organizations
-- Case studies and real-world examples of successful GitHub Enterprise implementations
-- IaC Code examples and templates for common GitHub Enterprise configurations.
+For the full architecture, see [Core mental model](architecture/mental-model.md).
+
+## Key Definitions
+
+- **Delivery Zone** -- A GitHub Organization configured with a specific set of guardrails, policies, and paved roads tailored to its teams' needs and risk profile.
+- **Delivery Zone Framework** -- The overall operating model, reference architecture, and reusable modules that let you create and govern Delivery Zones consistently at scale.
+- **Cockpit Organization** -- The central control-plane organization that owns provisioning automation, policy definitions, the service catalog, and the exception registry.
+- **Paved Roads** -- Pre-built, secure-by-default patterns (required workflows, repository templates, rulesets) that teams adopt instead of building from scratch.
+- **Guardrails** -- Policies and rulesets enforced at the enterprise, organization, or repository level to maintain security and compliance without blocking delivery.
+- **Baseline** -- The minimum set of guardrails and configurations applied to every new organization or repository by default.
+
+## Where to Start
+
+!!! tip "New here?"
+    Read the [Getting started](getting-started.md) guide for a full orientation -- it covers the value proposition, the adoption journey, and links to every section of the documentation.
+
+## Documentation Sections
+
+| Section | What it covers |
+| --- | --- |
+| [Getting started](getting-started.md) | Value proposition, core mental model overview, adoption journey |
+| [Architecture](architecture/mental-model.md) | 4-layer model, Azure Landing Zone mapping, organization strategy |
+| [Operating model](operating-model/roles-raci.md) | Roles and RACI, exception process |
+| [Guardrails](guardrails/policies.md) | Enterprise policies, custom properties, rulesets, required workflows |
+| [How-to guides](how-to/consume-framework.md) | Consuming the framework, onboarding a team |
+| [Decisions (ADRs)](adr/0001-docs-stack.md) | Architecture Decision Records for this project |
