@@ -62,17 +62,25 @@ nav:
   - Get Started: getting-started.md
   - Architecture:
       - Core Mental Model: architecture/mental-model.md
+      - Cockpit Organization: architecture/cockpit-org.md
       - Organization Strategy: architecture/org-strategy.md
   - Operating model:
       - Roles & RACI: operating-model/roles-raci.md
       - Exception Process: operating-model/exception-process.md
+      - Observability: operating-model/observability.md
   - Guardrails:
+      - Repository Baseline: guardrails/repo-baseline.md
       - Enterprise Policies: guardrails/policies.md
       - Custom Properties: guardrails/custom-properties.md
       - Rulesets: guardrails/rulesets.md
-      - Reusable Workflows: guardrails/reusable-workflows.md
+      - Required Workflows: guardrails/required-workflows.md
   - How-to:
+      - Author Required Workflows: how-to/author-required-workflows.md
       - Consume Framework: how-to/consume-framework.md
+      - Provision Organization: how-to/provision-organization.md
       - Onboarding a Team: how-to/onboarding-a-team.md
   - Decisions (ADRs):
       - Documentation Stack: adr/0001-docs-stack.md
+      - Rulesets over Branch Protection: adr/0002-rulesets-over-branch-protection.md
+      - Multi-Organization Strategy: adr/0003-multi-org-strategy.md
+      - Time-Bound Exceptions: adr/0004-time-bound-exceptions.md

@@ -59,6 +59,47 @@ The following properties are defined at the enterprise level and used by the fra
 !!! note
     These are recommendations. Adapt the property schema to your enterprise's organizational structure and compliance requirements. The important thing is to define properties **once at the enterprise level** so that all organizations share a consistent taxonomy.
 
+## Ruleset targeting
+
+Custom properties become powerful when used as **targeting criteria** in rulesets. Instead of maintaining a static list of repositories per ruleset, you define conditions based on property values and let GitHub match repositories automatically.
+
+![Page-1](../medias/custom-properties-targeting.drawio){ aria-label="Diagram showing how custom property values on repositories are used as targeting criteria to dynamically apply the correct rulesets." }
+
+### How targeting works
+
+When you create or edit a ruleset at the organization or enterprise level, you can specify targeting conditions that reference custom properties. Any repository whose property values match the conditions will have the ruleset applied automatically.
+
+The targeting criteria support:
+
+- **Exact match** — apply to repositories where a property equals a specific value (e.g., `risk-level` is `high`).
+- **Multi-value match** — apply to repositories where a multi-select property includes a specific value (e.g., `compliance-scope` includes `pci`).
+- **Combination** — combine multiple property conditions so that a ruleset applies only when all conditions are met.
+
+### Example: tiered protection by risk level
+
+A common pattern is to define multiple rulesets with increasing strictness, each targeting a different `risk-level` value:
+
+| Ruleset | Targeting condition | Rules applied |
+| --- | --- | --- |
+| `baseline-protection` | All repositories (default) | Require pull request, 1 approval, status checks |
+| `sensitive-repo-protection` | `risk-level: high` | Require 2 approvals, signed commits, dismiss stale reviews, restrict force push |
+| `critical-repo-protection` | `risk-level: critical` | Require 3 approvals, code owner review, linear history, lock branch on merge |
+
+When a repository is tagged with `risk-level: high`, the `sensitive-repo-protection` ruleset applies automatically in addition to the baseline. No manual per-repo configuration is needed, and new repositories that receive the property value are covered immediately.
+
+### Relationship between properties and rulesets
+
+Custom properties and rulesets form a two-part system:
+
+- **Properties** classify repositories (the "what").
+- **Rulesets** enforce governance rules (the "how").
+- **Targeting** connects the two (the "where").
+
+Changing a property value on a repository changes which rulesets apply to it. This makes property assignment a governance decision, not just a metadata update. See [Rulesets](rulesets.md) for the full ruleset configuration reference.
+
+!!! note
+    If a repository matches multiple rulesets, GitHub applies all matching rulesets. The most restrictive rule wins when there is a conflict (e.g., the highest required approval count across all matching rulesets is enforced).
+
 ## Governance workflow
 
 The full lifecycle of custom properties in the governance framework:
@@ -75,4 +116,4 @@ The full lifecycle of custom properties in the governance framework:
 
 ---
 
-Next: [Reusable workflows](reusable-workflows.md)
+Next: [Required workflows](required-workflows.md)

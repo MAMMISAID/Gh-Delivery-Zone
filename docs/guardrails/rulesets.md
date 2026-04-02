@@ -26,36 +26,7 @@ The key advantage is **org-level enforcement**. A single ruleset defined at the 
 
 Rulesets follow a layered model. Each layer adds controls, and layers stack — they do not override each other.
 
-```mermaid
-%%{init: {'theme': 'base', 'flowchart': {'curve': 'basis', 'rankSpacing': 50}, 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif', 'lineColor': '#6e7781'}}}%%
-flowchart TB
-  subgraph L1["Enterprise Layer"]
-    E1["Identity & SSO enforcement"]
-    E2["Audit log streaming"]
-    E3["IP allow-list"]
-  end
-
-  subgraph L2["Organization Layer"]
-    O1["default-branch-protection ruleset"]
-    O2["ci-enforcement ruleset"]
-    O3["release-protection ruleset"]
-  end
-
-  subgraph L3["Repository Layer (optional)"]
-    R1["Team-specific additions<br/>(e.g., stricter review count,<br/>required deployments)"]
-  end
-
-  L1 --> L2
-  L2 --> L3
-
-  classDef enterprise fill:#fff4e5,stroke:#d4a72c,stroke-width:1.5px,color:#1f2328;
-  classDef org fill:#e7f0ff,stroke:#218bff,stroke-width:1.4px,color:#1f2328;
-  classDef repo fill:#eaf9f1,stroke:#2da44e,stroke-width:1.4px,color:#1f2328;
-
-  class E1,E2,E3 enterprise;
-  class O1,O2,O3 org;
-  class R1 repo;
-```
+![Page-1](../medias/ruleset-layers.drawio){ aria-label="Three-layer ruleset design showing Enterprise, Organization, and Repository layers with inheritance arrows." }
 
 <details>
 <summary>Text description of ruleset layers diagram</summary>
@@ -120,7 +91,7 @@ Targets the default branch and all pull request branches.
 | --- | --- |
 | Require status checks to pass | Enabled |
 | Required status checks | `build`, `test`, `security-scan` |
-| Require workflows to pass | Platform reusable workflow reference |
+| Require workflows to pass | Platform required workflow reference |
 
 ### sensitive-repo-protection
 
@@ -177,18 +148,14 @@ Rulesets are not static. They evolve as the platform matures and as GitHub ships
 5. **Roll out to production orgs** one at a time, starting with the least critical.
 6. **Monitor** bypass events and developer feedback for the first two weeks.
 
-```mermaid
-%%{init: {'theme': 'base', 'flowchart': {'curve': 'basis'}, 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif', 'lineColor': '#6e7781'}}}%%
-flowchart LR
-  A["Define in code"] --> B["Evaluate mode<br/>(sandbox org)"]
-  B --> C["Review results"]
-  C --> D["Active mode<br/>(sandbox org)"]
-  D --> E["Roll out to<br/>production orgs"]
-  E --> F["Monitor &<br/>iterate"]
+![Page-1](../medias/ruleset-rollout.drawio){ aria-label="Six-step linear rollout strategy from Define in code through Evaluate mode, Review results, Active mode, Roll out to production, and Monitor and iterate." }
 
-  classDef step fill:#e7f0ff,stroke:#218bff,stroke-width:1.4px,color:#1f2328;
-  class A,B,C,D,E,F step;
-```
+<details>
+<summary>Text description of ruleset rollout strategy diagram</summary>
+
+Six steps flow left to right: Define in code, Evaluate mode (sandbox org), Review results, Active mode (sandbox org), Roll out to production orgs, Monitor and iterate. Each step connects to the next with an arrow, representing the progressive rollout of a new ruleset from definition through production deployment.
+
+</details>
 
 !!! tip
     Always use evaluate mode before activating a new ruleset. A ruleset that blocks every developer from merging on a Monday morning is worse than no ruleset at all.
@@ -201,4 +168,4 @@ flowchart LR
 
 ---
 
-Next: [Reusable workflows](reusable-workflows.md)
+Next: [Required workflows](required-workflows.md)

@@ -1,80 +1,44 @@
-# Reusable Workflows
+# Required Workflows
 
-Reusable workflows are the **platform API**. They replace copy/paste YAML with centrally maintained, versioned, and secured workflow definitions that product teams consume as a service. If rulesets enforce *what* must happen, reusable workflows define *how* it happens.
+Required workflows are the **platform-mandated CI/CD standards**. They replace copy/paste YAML with centrally maintained, versioned, and secured workflow definitions that org-level rulesets require every repository to run. If rulesets enforce *what* must happen, required workflows define *how* it happens.
 
-Every team should call a reusable workflow — not write their own CI from scratch.
+Every repository must run the required workflows -- this is enforced by org-level rulesets.
 
-## Why reusable workflows
+!!! info
+    Required workflows use GitHub's reusable workflow mechanism under the hood (the `uses:` syntax), but in this framework they are mandated by org-level rulesets -- not optional. The term "reusable workflows" refers to the generic GitHub feature for sharing workflow definitions, which will be covered in a future inner sourcing chapter.
 
-### Consistency
+## Why required workflows
 
-When 200 repositories each have their own build workflow, you get 200 variations. Some pin dependencies, some do not. Some run security scans, some skip them. Reusable workflows guarantee that every repo that calls the platform workflow gets the same steps, the same checks, and the same evidence.
+### Consistency and enforcement
+
+When 200 repositories each have their own build workflow, you get 200 variations. Some pin dependencies, some do not. Some run security scans, some skip them. Required workflows guarantee that every repo gets the same steps, the same checks, and the same evidence. Because they are enforced by org-level rulesets, teams cannot opt out or substitute their own alternatives.
 
 ### Maintainability
 
-When a build tool changes or a security scanner needs a version bump, you update one workflow in one repository. Every consumer picks up the change on their next run (or at the next tagged version). Without reusable workflows, you file 200 pull requests.
+When a build tool changes or a security scanner needs a version bump, you update one workflow in one repository. Every consumer picks up the change on their next run (or at the next tagged version). Without required workflows, you file 200 pull requests.
 
 ### Security
 
-Reusable workflows run in the **caller's context** but can access **secrets defined in the platform org**. This means:
+Required workflows run in the **caller's context** but can access **secrets defined in the platform org**. This means:
 
 - Product repos never need to store shared secrets (registry credentials, scan tokens).
 - The platform team controls secret rotation in one place.
 - Workflow code is reviewed and approved by the platform team before it runs anywhere.
+- Because required workflows are enforced by rulesets, they cannot be bypassed or skipped by product teams.
 
 !!! note
-    Reusable workflows are called with `uses:`. They are not the same as composite actions. Composite actions run inline. Reusable workflows run as a separate job with their own runner context and secret scope.
+    Required workflows are implemented using GitHub's reusable workflow feature (`uses:` syntax). They are not the same as composite actions. Composite actions run inline. Reusable workflows run as a separate job with their own runner context and secret scope.
 
 ## Architecture
 
-The platform org publishes reusable workflows. Product orgs consume them by reference.
+The cockpit org publishes required workflows. Org-level rulesets enforce that product repos must use them.
 
-```mermaid
-%%{init: {'theme': 'base', 'flowchart': {'curve': 'basis', 'nodeSpacing': 50, 'rankSpacing': 60}, 'themeVariables': {'fontSize': '14px', 'fontFamily': 'Segoe UI, Arial, sans-serif', 'lineColor': '#6e7781'}}}%%
-flowchart TB
-  subgraph Platform["Platform Org (cockpit)"]
-    direction TB
-    WF_BUILD["build.yml"]
-    WF_TEST["test.yml"]
-    WF_SCAN["security-scan.yml"]
-    WF_RELEASE["release.yml"]
-    WF_DEPS["dependency-update.yml"]
-  end
-
-  subgraph ProductA["Product Org A"]
-    direction TB
-    REPO_A1["repo: frontend-app<br/>calls build.yml + test.yml"]
-    REPO_A2["repo: backend-api<br/>calls build.yml + test.yml + security-scan.yml"]
-  end
-
-  subgraph ProductB["Product Org B"]
-    direction TB
-    REPO_B1["repo: data-pipeline<br/>calls build.yml + security-scan.yml"]
-    REPO_B2["repo: mobile-app<br/>calls build.yml + test.yml + release.yml"]
-  end
-
-  WF_BUILD --> REPO_A1
-  WF_BUILD --> REPO_A2
-  WF_BUILD --> REPO_B1
-  WF_BUILD --> REPO_B2
-  WF_TEST --> REPO_A1
-  WF_TEST --> REPO_A2
-  WF_TEST --> REPO_B2
-  WF_SCAN --> REPO_A2
-  WF_SCAN --> REPO_B1
-  WF_RELEASE --> REPO_B2
-
-  classDef platform fill:#e7f0ff,stroke:#218bff,stroke-width:1.4px,color:#1f2328;
-  classDef product fill:#eaf9f1,stroke:#2da44e,stroke-width:1.4px,color:#1f2328;
-
-  class WF_BUILD,WF_TEST,WF_SCAN,WF_RELEASE,WF_DEPS platform;
-  class REPO_A1,REPO_A2,REPO_B1,REPO_B2 product;
-```
+![Page-1](../medias/required-workflows-architecture.drawio){ aria-label="Architecture diagram showing Platform Org cockpit with five required workflows consumed by repos in Product Org A and Product Org B via arrows, enforced by org-level rulesets." }
 
 <details>
-<summary>Text description of reusable workflows architecture diagram</summary>
+<summary>Text description of required workflows architecture diagram</summary>
 
-The Platform Org (cockpit) contains five workflow files: build.yml, test.yml, security-scan.yml, release.yml, and dependency-update.yml. Two Product Orgs consume these workflows. Product Org A has frontend-app (calls build + test) and backend-api (calls build + test + security-scan). Product Org B has data-pipeline (calls build + security-scan) and mobile-app (calls build + test + release). Arrows show which workflows each repo consumes.
+The Platform Org (cockpit) contains five workflow files: build.yml, test.yml, security-scan.yml, release.yml, and dependency-update.yml. Org-level rulesets mandate that product repos run these workflows. Two Product Orgs consume these workflows. Product Org A has frontend-app (calls build + test) and backend-api (calls build + test + security-scan). Product Org B has data-pipeline (calls build + security-scan) and mobile-app (calls build + test + release). Arrows show which workflows each repo consumes.
 
 </details>
 
@@ -85,6 +49,7 @@ The Platform Org (cockpit) contains five workflow files: build.yml, test.yml, se
 3. Product repos reference workflows using the full path: `uses: platform-org/workflows/.github/workflows/build.yml@v1`.
 4. GitHub resolves the reference at runtime, pulls the workflow definition, and executes it in the caller's context.
 5. Secrets needed by the workflow are stored in the platform org and passed through `secrets: inherit` or explicit secret inputs.
+6. Org-level rulesets enforce that every repository in the product orgs must include these workflow calls. Repositories that do not comply will have their checks fail.
 
 ## Standard workflow catalog
 
@@ -210,17 +175,17 @@ jobs:
 The product team writes a short orchestration file. The platform team owns the implementation. This is the contract.
 
 !!! note
-    The `secrets: inherit` directive passes the caller's secrets to the reusable workflow. For platform-owned secrets (registry tokens, scan API keys), the reusable workflow accesses them from the platform org's secret store directly.
+    The `secrets: inherit` directive passes the caller's secrets to the required workflow. For platform-owned secrets (registry tokens, scan API keys), the required workflow accesses them from the platform org's secret store directly.
 
 ## Anti-patterns
 
-These patterns undermine the value of reusable workflows. Avoid them.
+These patterns undermine the value of required workflows. Avoid them.
 
 ### Forking workflows
 
 **Problem:** A team copies the platform workflow into their own repo and modifies it locally.
 
-**Why it breaks:** The fork drifts immediately. Security patches, new checks, and improvements in the platform workflow never reach the fork. Compliance reporting sees the local workflow but cannot verify it matches the standard.
+**Why it breaks:** The fork drifts immediately. Security patches, new checks, and improvements in the platform workflow never reach the fork. Compliance reporting sees the local workflow but cannot verify it matches the standard. Additionally, forking violates the org-level ruleset requirement -- the ruleset mandates the use of the official platform workflows, not local copies.
 
 **Fix:** If the platform workflow does not meet a team's needs, they should open an issue or pull request in the platform org. The workflow should be extended, not forked.
 

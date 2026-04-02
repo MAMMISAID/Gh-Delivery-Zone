@@ -1,0 +1,75 @@
+<mxfile host="app.diagrams.net" modified="2026-04-02T00:00:00.000Z" type="device">
+  <diagram name="Page-1" id="page1">
+    <mxGraphModel dx="1200" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+        <!-- Layer 1: Enterprise Policies -->
+        <mxCell id="L1" value="Enterprise Policies" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e5;strokeColor=#d4a72c;strokeWidth=1.5;fontFamily=Segoe UI;fontSize=14;fontStyle=1;verticalAlign=top;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="30" width="500" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="EP1" value="Allowed actions &amp;amp;&lt;br&gt;workflow permissions" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e5;strokeColor=#d4a72c;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L1">
+          <mxGeometry x="15" y="40" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="EP2" value="2FA, SSO,&lt;br&gt;default branch name" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e5;strokeColor=#d4a72c;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L1">
+          <mxGeometry x="175" y="40" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="EP3" value="Secret scanning,&lt;br&gt;Dependabot, CodeQL" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e5;strokeColor=#d4a72c;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L1">
+          <mxGeometry x="335" y="40" width="150" height="50" as="geometry"/>
+        </mxCell>
+        <!-- Layer 2: Org-Level Rulesets -->
+        <mxCell id="L2" value="Org-Level Rulesets" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=14;fontStyle=1;verticalAlign=top;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="500" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="OR1" value="default-branch-&lt;br&gt;protection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L2">
+          <mxGeometry x="10" y="40" width="115" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="OR2" value="ci-enforcement" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L2">
+          <mxGeometry x="135" y="40" width="110" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="OR3" value="release-&lt;br&gt;protection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L2">
+          <mxGeometry x="255" y="40" width="110" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="OR4" value="sensitive-repo-&lt;br&gt;protection" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L2">
+          <mxGeometry x="375" y="40" width="115" height="50" as="geometry"/>
+        </mxCell>
+        <!-- Layer 3: Required Workflows -->
+        <mxCell id="L3" value="Required Workflows" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0e7ff;strokeColor=#8250df;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=14;fontStyle=1;verticalAlign=top;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="370" width="500" height="110" as="geometry"/>
+        </mxCell>
+        <mxCell id="RW1" value="build, test, security-scan" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0e7ff;strokeColor=#8250df;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L3">
+          <mxGeometry x="30" y="40" width="200" height="45" as="geometry"/>
+        </mxCell>
+        <mxCell id="RW2" value="release, dependency-update" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f0e7ff;strokeColor=#8250df;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L3">
+          <mxGeometry x="260" y="40" width="210" height="45" as="geometry"/>
+        </mxCell>
+        <!-- Layer 4: Template Contents -->
+        <mxCell id="L4" value="Template Contents" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=14;fontStyle=1;verticalAlign=top;container=1;collapsible=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="520" width="500" height="130" as="geometry"/>
+        </mxCell>
+        <mxCell id="TC1" value="Directory structure&lt;br&gt;&amp;amp; README" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L4">
+          <mxGeometry x="10" y="40" width="115" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="TC2" value="CODEOWNERS &amp;amp;&lt;br&gt;PR template" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L4">
+          <mxGeometry x="135" y="40" width="110" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="TC3" value=".github/workflows/&lt;br&gt;ci.yml stub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L4">
+          <mxGeometry x="255" y="40" width="115" height="50" as="geometry"/>
+        </mxCell>
+        <mxCell id="TC4" value="SECURITY.md &amp;amp;&lt;br&gt;LICENSE" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" vertex="1" parent="L4">
+          <mxGeometry x="380" y="40" width="110" height="50" as="geometry"/>
+        </mxCell>
+        <!-- Edges between layers -->
+        <mxCell id="e1" value="inherited automatically" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" edge="1" source="L1" target="L2" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e2" value="applied by org automation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" edge="1" source="L2" target="L3" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="e3" value="referenced by" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" edge="1" source="L3" target="L4" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

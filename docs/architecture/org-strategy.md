@@ -34,10 +34,25 @@ Start with a small number of organizations. Expand only when there is a clear bo
 
 A common enterprise starting point:
 
-- `cockpit` : We call it also cockpit org, where platform team builds and maintains the paved roads (reusable workflows, templates, policy-as-code, etc.)
+- `cockpit` : We call it also cockpit org, where platform team builds and maintains the paved roads (required workflows, templates, policy-as-code, etc.)
 - `products` (or 1–N product orgs): application repositories owned by product teams, or business units. Baseline guardrails are enforced here by default, with exceptions managed explicitly.
 
 This gives separation of duties without creating fragmentation too early.
+
+![Page-1](../medias/org-strategy.drawio){ aria-label="Diagram showing the default organization strategy with GitHub Enterprise, Cockpit Organization, and Product Organizations." }
+
+<details>
+<summary>Text description of organization strategy diagram</summary>
+
+The diagram shows the default organization pattern for a GitHub Enterprise Delivery Zone.
+<ul>
+    <li>GitHub Enterprise sits at the top as the platform boundary.</li>
+    <li>Below it, the Cockpit Organization acts as the control plane, containing required workflows, templates and golden paths, policy-as-code, and observability and reporting.</li>
+    <li>Three product organizations sit alongside the cockpit: product-a (with app-frontend, app-backend, infra-config), product-b (with service-api, service-worker), and a sandbox org (with hackathon-2026, spike-new-framework).</li>
+    <li>Dashed arrows labeled "paved roads" flow from the cockpit organization to each product organization, representing the reusable standards and automation the cockpit provides.</li>
+</ul>
+
+</details>
 
 ## Recommended org archetypes
 
@@ -47,7 +62,7 @@ This gives separation of duties without creating fragmentation too early.
 
 **Contains:**
 
-- reusable workflows and composite actions
+- required workflows and composite actions
 - org-level automation repos
 - templates and “golden paths”
 - policy-as-code (where applicable)
@@ -75,7 +90,7 @@ Cross-org dependencies are normal, but don’t let them become brittle.
 
 **Prefer:**
 
-- reusable workflows published by cockpit org (consumed via pinned versions)
+- required workflows published by cockpit org (consumed via pinned versions)
 - templates that create “compliant defaults” at repo creation time
 - automation that enforces baseline across orgs consistently
 

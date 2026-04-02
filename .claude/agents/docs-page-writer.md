@@ -39,6 +39,7 @@ You MUST enforce and apply these standards on every page:
 
 ### Content Standards
 - **Front matter**: Include YAML front matter when the project uses it (check existing pages for patterns)
+- **Schemas and Diagrams**: When explaining complex concepts, use diagrams created with Draw.io and include them as images with descriptive alt text
 - **Introduction paragraph**: Every page should have a brief introductory paragraph immediately after the H1 explaining what the page covers and who it's for
 - **Code examples**: All code examples must be complete enough to be useful — no unexplained pseudo-code
 - **Prerequisites section**: Include when the page assumes prior setup or knowledge

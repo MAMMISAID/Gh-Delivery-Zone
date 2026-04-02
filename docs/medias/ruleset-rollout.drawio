@@ -1,0 +1,57 @@
+<mxfile host="app.diagrams.net" modified="2026-04-02T00:00:00.000Z" type="device">
+  <diagram name="Page-1" id="page1">
+    <mxGraphModel dx="1200" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0"/>
+        <mxCell id="1" parent="0"/>
+
+        <!-- Step A: Define in code -->
+        <mxCell id="A" value="Define in code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="30" y="160" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Step B: Evaluate mode (sandbox org) -->
+        <mxCell id="B" value="Evaluate mode&lt;br&gt;(sandbox org)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="230" y="160" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Step C: Review results -->
+        <mxCell id="C" value="Review results" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="430" y="160" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Step D: Active mode (sandbox org) -->
+        <mxCell id="D" value="Active mode&lt;br&gt;(sandbox org)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="630" y="160" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Step E: Roll out to production orgs -->
+        <mxCell id="E" value="Roll out to&lt;br&gt;production orgs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="830" y="160" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Step F: Monitor & iterate -->
+        <mxCell id="F" value="Monitor &amp;&lt;br&gt;iterate" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="160" width="160" height="60" as="geometry"/>
+        </mxCell>
+
+        <!-- Arrows -->
+        <mxCell id="eAB" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="A" target="B" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eBC" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="B" target="C" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eCD" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="C" target="D" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eDE" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="D" target="E" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+        <mxCell id="eEF" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;strokeColor=#6e7781;" edge="1" source="E" target="F" parent="1">
+          <mxGeometry relative="1" as="geometry"/>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

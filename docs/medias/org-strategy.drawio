@@ -1,0 +1,106 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="page1">
+        <mxGraphModel dx="1675" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="GHE" value="GitHub Enterprise" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e5;strokeColor=#d4a72c;strokeWidth=1.5;fontFamily=Segoe UI;fontSize=14;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="420" y="30" width="220" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="cockpit" value="Cockpit Organization" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=14;fontStyle=1;verticalAlign=top;container=1;collapsible=0;" parent="1" vertex="1">
+                    <mxGeometry x="40" y="140" width="240" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="RW" value="Required Workflows" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" parent="cockpit" vertex="1">
+                    <mxGeometry x="20" y="40" width="200" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="TPL" value="Templates &amp;amp; Golden Paths" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" parent="cockpit" vertex="1">
+                    <mxGeometry x="20" y="90" width="200" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="PAC" value="Policy-as-Code" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" parent="cockpit" vertex="1">
+                    <mxGeometry x="20" y="140" width="200" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="OBS" value="Observability &amp;amp; Reporting" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" parent="cockpit" vertex="1">
+                    <mxGeometry x="20" y="190" width="200" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="prodA" value="Product Org: product-a" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=14;fontStyle=1;verticalAlign=top;container=1;collapsible=0;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="140" width="220" height="190" as="geometry"/>
+                </mxCell>
+                <mxCell id="A1" value="app-frontend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" parent="prodA" vertex="1">
+                    <mxGeometry x="20" y="40" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="A2" value="app-backend" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" parent="prodA" vertex="1">
+                    <mxGeometry x="20" y="90" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="A3" value="infra-config" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" parent="prodA" vertex="1">
+                    <mxGeometry x="20" y="140" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="prodB" value="Product Org: product-b" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=14;fontStyle=1;verticalAlign=top;container=1;collapsible=0;" parent="1" vertex="1">
+                    <mxGeometry x="610" y="140" width="220" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="B1" value="service-api" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" parent="prodB" vertex="1">
+                    <mxGeometry x="20" y="40" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="B2" value="service-worker" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" parent="prodB" vertex="1">
+                    <mxGeometry x="20" y="90" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="sandbox" value="Sandbox Org" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=14;fontStyle=1;verticalAlign=top;container=1;collapsible=0;" parent="1" vertex="1">
+                    <mxGeometry x="880" y="140" width="220" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="S1" value="hackathon-2026" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" parent="sandbox" vertex="1">
+                    <mxGeometry x="20" y="40" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="S2" value="spike-new-framework" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=12;" parent="sandbox" vertex="1">
+                    <mxGeometry x="20" y="90" width="180" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6e7781;" parent="1" source="GHE" target="cockpit" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="530" y="110"/>
+                            <mxPoint x="160" y="110"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6e7781;" parent="1" source="GHE" target="prodA" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6e7781;" parent="1" source="GHE" target="prodB" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="530" y="110"/>
+                            <mxPoint x="720" y="110"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6e7781;" parent="1" source="GHE" target="sandbox" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="530" y="110"/>
+                            <mxPoint x="990" y="110"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e5" value="paved roads" style="edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;orthogonalLoop=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" parent="1" source="cockpit" target="prodA" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e6" value="paved roads" style="edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;orthogonalLoop=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" parent="1" source="cockpit" target="prodB" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="310" y="320"/>
+                            <mxPoint x="310" y="350"/>
+                            <mxPoint x="720" y="350"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e7" value="paved roads" style="edgeStyle=orthogonalEdgeStyle;rounded=0;dashed=1;orthogonalLoop=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" parent="1" source="cockpit" target="sandbox" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="160" y="420"/>
+                            <mxPoint x="860" y="420"/>
+                            <mxPoint x="860" y="210"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

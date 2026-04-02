@@ -1,0 +1,43 @@
+<mxfile host="65bd71144e">
+    <diagram name="Page-1" id="page1">
+        <mxGraphModel dx="1675" dy="750" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="L1" value="Layer 1: Enterprise Platform Boundary&lt;br&gt;(Identity, Audit, Governance)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff4e5;strokeColor=#d4a72c;strokeWidth=1.5;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="40" width="300" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="L2" value="Layer 2: Cockpit Organization&lt;br&gt;(Control Plane)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e7f0ff;strokeColor=#218bff;strokeWidth=2;fontFamily=Segoe UI;fontSize=13;fontStyle=1;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="140" width="300" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="L3" value="Layer 3: Product Organizations&lt;br&gt;(Team Repositories)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eaf9f1;strokeColor=#2da44e;strokeWidth=1.4;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="240" width="300" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="L4" value="Layer 4: Repository Guardrails&lt;br&gt;(Rulesets, Workflows, Defaults)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f6f8fa;strokeColor=#8c959f;strokeWidth=1.2;fontFamily=Segoe UI;fontSize=13;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="384" width="300" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" value="policies &amp; identity" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" parent="1" source="L1" target="L2" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" value="paved roads &amp; automation" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" parent="1" source="L2" target="L3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e3" value="rulesets &amp; baselines" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" parent="1" source="L2" target="L4" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="565" y="220"/>
+                            <mxPoint x="700" y="220"/>
+                            <mxPoint x="700" y="330"/>
+                            <mxPoint x="565" y="330"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e4" value="enforced on every repo in" style="rounded=0;orthogonalLoop=1;jettySize=auto;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.25;entryY=1;entryDx=0;entryDy=0;strokeColor=#6e7781;fontSize=11;fontFamily=Segoe UI;" parent="1" source="L4" target="L3" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
